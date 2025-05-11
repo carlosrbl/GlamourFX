@@ -41,6 +41,6 @@ public class CustomerInterface
 
     public void setClienteName(String nombre)
     {
-        helloLabel.setText("Hello, " + nombre + "!");
+        helloLabel.setText("Hello, " + nombre.substring(0,1).toUpperCase() + nombre.substring(1) + "!");
     }
 }

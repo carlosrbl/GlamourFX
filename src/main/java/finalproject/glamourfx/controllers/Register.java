@@ -7,45 +7,76 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Register
 {
     @FXML
+    private TextField txName;
+    @FXML
+    private PasswordField txPassword;
+    @FXML
+    private PasswordField txPassword2;
+    @FXML
+    private TextField txEmail;
+    @FXML
+    private TextField txPhoneNumber;
+
+    @FXML
     private void addUser(ActionEvent event)
     {
-        try
+        boolean passwordTrue = checkPassword();
+        // comprobar que el usuario no exista
+        if (passwordTrue)
         {
-            String clientName = newUser();
+            newCustomer();
+            try
+            {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
+                Parent root = loader.load();
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
-            Parent root = loader.load();
+                CustomerInterface controller = loader.getController();
+                controller.setClienteName(txName.getText());
 
-            CustomerInterface controller = loader.getController();
-            controller.setClienteName(clientName);
+                Scene scene = new Scene(root);
 
-            Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setTitle("GlamourFX");
+                stage.setScene(scene);
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setTitle("GlamourFX");
-            stage.setScene(scene);
+                stage.setFullScreen(true);
+                stage.setFullScreenExitHint("");
 
-            stage.setFullScreen(true);
-            stage.setFullScreenExitHint("");
-
-            stage.show();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+                stage.show();
+            } catch (IOException e) {
+                e.getMessage();
+            }
         }
     }
 
-    private String newUser()
+    private boolean checkPassword()
     {
-        Customer customer = new Customer("Sergio","a","a","a");
-        return customer.getName();
+        return txPassword.getText().equals(txPassword2.getText());
+    }
+
+    private void newCustomer()
+    {
+        try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("customers.txt",true))))
+        {
+            pw.println();
+            pw.println(txName.getText() + ";" + txPassword.getText() + ";" + txEmail.getText() + ";" + txPhoneNumber.getText());
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML

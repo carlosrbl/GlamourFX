@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.Register">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
@@ -27,12 +28,12 @@
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Label>
-        <TextField layoutX="1253.0" layoutY="125.0" prefHeight="25.0" prefWidth="314.0" />
+        <TextField fx:id="txName" layoutX="1253.0" layoutY="125.0" prefHeight="25.0" prefWidth="314.0" />
         <Label layoutX="1253.0" layoutY="167.0" prefHeight="42.0" prefWidth="168.0" text="PASSWORD" textFill="WHITE">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Label>
-        <TextField layoutX="1253.0" layoutY="216.0" prefHeight="25.0" prefWidth="314.0" />
+        <PasswordField fx:id="txPassword" layoutX="1253.0" layoutY="216.0" prefHeight="25.0" prefWidth="314.0" />
       <Label layoutX="1251.0" layoutY="445.0" prefHeight="42.0" prefWidth="212.0" text="PHONE NUMBER" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
@@ -48,8 +49,8 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="1251.0" layoutY="308.0" prefHeight="25.0" prefWidth="314.0" />
-      <TextField layoutX="1251.0" layoutY="398.0" prefHeight="25.0" prefWidth="314.0" />
-      <TextField layoutX="1251.0" layoutY="487.0" prefHeight="25.0" prefWidth="314.0" />
+        <PasswordField fx:id="txPassword2" layoutX="1251.0" layoutY="308.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="txEmail" layoutX="1251.0" layoutY="398.0" prefHeight="25.0" prefWidth="314.0" />
+      <TextField fx:id="txPhoneNumber" layoutX="1251.0" layoutY="487.0" prefHeight="25.0" prefWidth="314.0" />
     </children>
 </Pane>

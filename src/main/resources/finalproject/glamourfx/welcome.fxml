@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.Check">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
@@ -27,11 +28,11 @@
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
          </font></Label>
-        <TextField layoutX="1093.0" layoutY="162.0" prefHeight="55.0" prefWidth="312.0" />
+        <TextField fx:id="txName" layoutX="1093.0" layoutY="162.0" prefHeight="55.0" prefWidth="312.0" />
         <Label layoutX="1088.0" layoutY="245.0" prefHeight="55.0" prefWidth="309.0" text="PASSWORD" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
          </font></Label>
-      <TextField layoutX="1088.0" layoutY="311.0" prefHeight="55.0" prefWidth="312.0" />
+        <PasswordField fx:id="txPassword" layoutX="1088.0" layoutY="311.0" prefHeight="55.0" prefWidth="312.0" />
     </children>
 </Pane>
