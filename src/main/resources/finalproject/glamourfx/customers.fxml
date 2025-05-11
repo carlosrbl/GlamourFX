@@ -18,7 +18,7 @@
       </Button>
       <ImageView fitHeight="1491.0" fitWidth="2237.0" layoutX="-10.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/customer.png" />
+            <Image url="@../img/Customers.png" />
          </image>
       </ImageView>
       <Button layoutX="1523.0" layoutY="686.0" onAction="#addUser" prefHeight="85.0" prefWidth="206.0" text="DELETE">
