@@ -1,6 +1,7 @@
 module finalproject.glamourfx {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens finalproject.glamourfx to javafx.fxml;

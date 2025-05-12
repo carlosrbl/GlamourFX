@@ -9,60 +9,55 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.glamourfx.data.Hairdresser">
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.HairdressersInterface">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
             <image>
                 <Image url="@../img/hairdresser.png" />
             </image>
         </ImageView>
-        <Button layoutX="1643.0" layoutY="39.0" onAction="#cancel" prefHeight="66.0" prefWidth="212.0" text="Back">
+        <Button id="hairdressersBack" layoutX="1658.0" layoutY="39.0" onAction="#back" prefHeight="66.0" prefWidth="212.0" text="Back">
             <font>
                 <Font size="48.0" />
             </font></Button>
-        <Label layoutX="1159.0" layoutY="340.0" prefHeight="70.0" prefWidth="136.0" text="Name" textFill="WHITE">
+        <Label layoutX="1108.0" layoutY="434.0" prefHeight="70.0" prefWidth="136.0" text="Name" textFill="WHITE">
             <font>
                 <Font size="48.0" />
             </font></Label>
-        <TextField layoutX="1057.0" layoutY="424.0" prefHeight="25.0" prefWidth="314.0">
+        <TextField id="hairdresserName" layoutX="1021.0" layoutY="525.0" prefHeight="25.0" prefWidth="314.0">
          <font>
             <Font size="24.0" />
          </font></TextField>
-        <ListView layoutX="358.0" layoutY="410.0" prefHeight="546.0" prefWidth="499.0" />
+        <ListView id="hairdressersList" layoutX="358.0" layoutY="410.0" prefHeight="546.0" prefWidth="499.0" />
         <Label layoutX="75.0" layoutY="33.0" prefHeight="70.0" prefWidth="533.0" text="Hairdressers Data" textFill="WHITE">
             <font>
                 <Font size="64.0" />
             </font>
         </Label>
-      <Button layoutX="1114.0" layoutY="800.0" onAction="#cancel" prefHeight="102.0" prefWidth="288.0" text="UPDATE">
+      <Button id="hairdressersCancel" layoutX="1549.0" layoutY="626.0" onAction="#cancel" prefHeight="70.0" prefWidth="168.0" text="CANCEL">
          <font>
-            <Font size="48.0" />
+            <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1433.0" layoutY="799.0" onAction="#cancel" prefHeight="102.0" prefWidth="288.0" text="CANCEL">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Button>
-      <TextField layoutX="1444.0" layoutY="420.0" prefHeight="25.0" prefWidth="314.0">
+      <TextField id="hairdresserStars" layoutX="1430.0" layoutY="521.0" prefHeight="25.0" prefWidth="314.0">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="1545.0" layoutY="329.0" prefHeight="70.0" prefWidth="112.0" text="Stars" textFill="WHITE">
+      <Label layoutX="1527.0" layoutY="430.0" prefHeight="70.0" prefWidth="112.0" text="Stars" textFill="WHITE">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <TextField layoutX="1255.0" layoutY="589.0" prefHeight="25.0" prefWidth="314.0">
+      <Button id="hairdressersDelete" layoutX="1323.0" layoutY="628.0" onAction="#cancel" prefHeight="70.0" prefWidth="168.0" text="DELETE">
          <font>
             <Font size="24.0" />
          </font>
-      </TextField>
-      <Label layoutX="1353.0" layoutY="507.0" prefHeight="70.0" prefWidth="109.0" text="Price" textFill="WHITE">
+      </Button>
+      <Button id="hairdressersUpdate" layoutX="1085.0" layoutY="626.0" onAction="#cancel" prefHeight="70.0" prefWidth="168.0" text="UPDATE">
          <font>
-            <Font size="48.0" />
+            <Font size="24.0" />
          </font>
-      </Label>
+      </Button>
     </children>
 </Pane>

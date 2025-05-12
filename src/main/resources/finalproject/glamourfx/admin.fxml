@@ -14,7 +14,7 @@
                 <Image url="@../img/admin.png" />
             </image>
         </ImageView>
-        <Button onAction="#loadAppointmentsInterface" layoutX="520.0" layoutY="585.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See appointments">
+        <Button layoutX="520.0" layoutY="585.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See appointments">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
@@ -22,7 +22,7 @@
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
             </font></Label>
-        <Button onAction="#loadServicesInterface" layoutX="520.0" layoutY="671.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See services">
+        <Button layoutX="520.0" layoutY="671.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See services">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font>
@@ -32,12 +32,12 @@
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font>
         </Button>
-      <Button onAction="#loadHairdressersInterface" layoutX="520.0" layoutY="853.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See hairdressers">
+      <Button layoutX="520.0" layoutY="853.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See hairdressers">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <Button onAction="#loadCustomersInterface" layoutX="514.0" layoutY="757.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See customers">
+      <Button layoutX="514.0" layoutY="757.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See customers">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
