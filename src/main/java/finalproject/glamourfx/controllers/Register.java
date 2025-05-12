@@ -102,7 +102,9 @@ public class Register
             String line;
             while ((line = inputFile.readLine()) != null) {
                 String[] data = line.split(";");
-                customers.add(new Customer(data[0], data[1], data[2], data[3]));
+                if (data.length == 4) {
+                    customers.add(new Customer(data[0], data[1], data[2], data[3]));
+                }
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -122,8 +124,7 @@ public class Register
     {
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("customers.txt",true))))
         {
-            pw.println();
-            pw.println(txName.getText() + ";" + txPassword.getText() + ";" + txEmail.getText() + ";" + txPhoneNumber.getText());
+            pw.print(txName.getText() + ";" + txPassword.getText() + ";" + txEmail.getText() + ";" + txPhoneNumber.getText() + "\n");
         }
         catch (IOException e)
         {

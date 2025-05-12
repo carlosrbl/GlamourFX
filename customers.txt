@@ -1,6 +1,2 @@
-Carlos;carlos2025;carlos@gmail.com;603441842
-pepe;pepe;pepe@gmail.com;654184256
-Luis;luisito;luis@gmail.com;897632514
-adri;adri;adri@adri.com;662919145
-carlos+;1234;gfgfdgfdgfd;655641
-pepe1;a;1;1
+pepe;pepe;pepe@gmail.com;654182549
+carlos;a;carlos@gmail.com;654182548
