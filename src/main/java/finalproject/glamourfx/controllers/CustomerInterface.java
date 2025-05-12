@@ -39,6 +39,54 @@ public class CustomerInterface
         }
     }
 
+    @FXML
+    private void loadReservationInterface(ActionEvent event)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("GlamourFX");
+            stage.setScene(scene);
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+
+            stage.show();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void loadCustomerAppointmentsInterface(ActionEvent event)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("GlamourFX");
+            stage.setScene(scene);
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+
+            stage.show();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public void setClienteName(String nombre)
     {
         helloLabel.setText("Hello, " + nombre.substring(0,1).toUpperCase() + nombre.substring(1) + "!");
