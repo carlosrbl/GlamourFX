@@ -2,6 +2,7 @@ package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;
 import javafx.animation.PauseTransition;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -62,6 +64,9 @@ public class Register
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
                         Parent root = loader.load();
 
+                        root.setRotationAxis( Rotate.Y_AXIS);
+                        root.setRotate(-90);
+
                         CustomerInterface controller = loader.getController();
                         controller.setClienteName(txName.getText());
 
@@ -74,7 +79,12 @@ public class Register
                         stage.setFullScreen(true);
                         stage.setFullScreenExitHint("");
 
+                        RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+                        rotate.setFromAngle(-90);
+                        rotate.setToAngle(0);
+
                         stage.show();
+                        rotate.play();
                     } catch (IOException e) {
                         e.getMessage();
                     }
@@ -82,12 +92,12 @@ public class Register
             }
             else
             {
-                Register.getInstance().setErrorPassword("Passwords are different");
+                Register.getInstance().setErrorPassword("¡Passwords are different!");
             }
         }
         else
         {
-            Register.getInstance().setErrorName("This name exists");
+            Register.getInstance().setErrorName("¡This name exists!");
         }
     }
 
@@ -139,6 +149,10 @@ public class Register
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/welcome.fxml"));
             Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -148,7 +162,12 @@ public class Register
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {

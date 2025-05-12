@@ -3,6 +3,7 @@ package finalproject.glamourfx.controllers;
 import finalproject.glamourfx.data.Customer;
 import finalproject.glamourfx.main.HelloApplication;
 import javafx.animation.PauseTransition;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -55,6 +57,9 @@ public class Check
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
                 Parent root = loader.load();
 
+                root.setRotationAxis( Rotate.Y_AXIS);
+                root.setRotate(-90);
+
                 AdminInterface controller = loader.getController();
                 controller.setClienteName(txName.getText());
 
@@ -67,7 +72,12 @@ public class Check
                 stage.setFullScreen(true);
                 stage.setFullScreenExitHint("");
 
+                RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+                rotate.setFromAngle(-90);
+                rotate.setToAngle(0);
+
                 stage.show();
+                rotate.play();
             }
             catch (IOException e)
             {
@@ -85,6 +95,9 @@ public class Check
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
                     Parent root = loader.load();
 
+                    root.setRotationAxis( Rotate.Y_AXIS);
+                    root.setRotate(-90);
+
                     CustomerInterface controller = loader.getController();
                     controller.setClienteName(txName.getText());
 
@@ -97,7 +110,12 @@ public class Check
                     stage.setFullScreen(true);
                     stage.setFullScreenExitHint("");
 
+                    RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+                    rotate.setFromAngle(-90);
+                    rotate.setToAngle(0);
+
                     stage.show();
+                    rotate.play();
                 }
                 catch (IOException e)
                 {
@@ -106,7 +124,7 @@ public class Check
             }
             else
             {
-                Check.getInstance().setError("Incorrect data");
+                Check.getInstance().setError("¡Incorrect data!");
             }
         }
     }
@@ -155,8 +173,11 @@ public class Check
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
 
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
+            Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
@@ -164,7 +185,12 @@ public class Check
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {

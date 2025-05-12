@@ -14,7 +14,7 @@
                 <Image url="@../img/customer.png" />
             </image>
         </ImageView>
-        <Button onAction="#loadReservationInterface" layoutX="309.0" layoutY="672.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment">
+        <Button layoutX="349.0" layoutY="603.0" onAction="#loadReservationInterface" prefHeight="239.0" prefWidth="333.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment" textAlignment="CENTER">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
@@ -22,12 +22,12 @@
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
          </font></Label>
-      <Button onAction="#loadCustomerAppointmentsInterface" layoutX="741.0" layoutY="677.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments">
+      <Button layoutX="794.0" layoutY="609.0" onAction="#loadCustomerAppointmentsInterface" prefHeight="225.0" prefWidth="296.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments" textAlignment="CENTER">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1474.0" layoutY="142.0" onAction="#logOut" text="Log out">
+      <Button layoutX="1474.0" layoutY="142.0" onAction="#logOut" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Log out" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

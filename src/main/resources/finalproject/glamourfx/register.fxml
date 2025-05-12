@@ -16,33 +16,35 @@
                 <Image url="@../img/register.png" />
             </image>
         </ImageView>
-        <Label fx:id="nameLabel" layoutX="1344.0" layoutY="56.0" prefHeight="54.0" prefWidth="252.0" textFill="RED">
+        <Label fx:id="nameLabel" layoutX="1644.0" layoutY="403.0" prefHeight="54.0" prefWidth="252.0" textAlignment="CENTER" textFill="RED">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
             </font></Label>
-        <Label fx:id="passwordLabel" layoutX="1399.0" layoutY="241.0" prefHeight="54.0" prefWidth="252.0" textFill="RED">
-            <font>
-                <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
-            </font></Label>
-        <Button layoutX="1684.0" layoutY="332.0" onAction="#cancel" text="Cancel">
+        <Button layoutX="1714.0" layoutY="315.0" onAction="#cancel" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
-        <Button layoutX="1673.0" layoutY="232.0" onAction="#addUser" text="Register User">
+        <Button layoutX="1688.0" layoutY="240.0" onAction="#addUser" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Check User" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
-        <Label layoutX="1253.0" layoutY="62.0" prefHeight="42.0" prefWidth="90.0" text="NAME" textFill="WHITE">
+        <Label layoutX="1253.0" layoutY="45.0" prefHeight="42.0" prefWidth="90.0" text="NAME" textFill="WHITE">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Label>
-        <TextField fx:id="txName" layoutX="1253.0" layoutY="112.0" prefHeight="25.0" prefWidth="314.0" />
-        <Label layoutX="1253.0" layoutY="156.0" prefHeight="42.0" prefWidth="168.0" text="PASSWORD" textFill="WHITE">
+        <TextField fx:id="txName" layoutX="1253.0" layoutY="88.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+         <font>
+            <Font name="Tw Cen MT Condensed" size="20.0" />
+         </font></TextField>
+        <Label layoutX="1253.0" layoutY="145.0" prefHeight="42.0" prefWidth="168.0" text="PASSWORD" textFill="WHITE">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Label>
-        <PasswordField fx:id="txPassword" layoutX="1253.0" layoutY="205.0" prefHeight="25.0" prefWidth="314.0" />
-      <Label layoutX="1251.0" layoutY="436.0" prefHeight="42.0" prefWidth="212.0" text="PHONE NUMBER" textFill="WHITE">
+        <PasswordField fx:id="txPassword" layoutX="1253.0" layoutY="189.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+         <font>
+            <Font name="Tw Cen MT Condensed" size="20.0" />
+         </font></PasswordField>
+      <Label layoutX="1251.0" layoutY="445.0" prefHeight="42.0" prefWidth="212.0" text="PHONE NUMBER" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -52,13 +54,52 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="1253.0" layoutY="248.0" prefHeight="42.0" prefWidth="275.0" text="PASSWORD" textFill="WHITE">
+      <Label layoutX="1253.0" layoutY="247.0" prefHeight="42.0" prefWidth="275.0" text="CONFIRM PASSWORD" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Label>
-        <PasswordField fx:id="txPassword2" layoutX="1251.0" layoutY="298.0" prefHeight="25.0" prefWidth="314.0" />
-      <TextField fx:id="txEmail" layoutX="1251.0" layoutY="393.0" prefHeight="25.0" prefWidth="314.0" />
-      <TextField fx:id="txPhoneNumber" layoutX="1251.0" layoutY="482.0" prefHeight="25.0" prefWidth="314.0" />
+        <PasswordField fx:id="txPassword2" layoutX="1251.0" layoutY="293.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+         <font>
+            <Font name="Tw Cen MT Condensed" size="20.0" />
+         </font></PasswordField>
+      <TextField fx:id="txEmail" layoutX="1251.0" layoutY="393.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+         <font>
+            <Font name="Tw Cen MT Condensed" size="20.0" />
+         </font></TextField>
+      <TextField fx:id="txPhoneNumber" layoutX="1251.0" layoutY="489.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+         <font>
+            <Font name="Tw Cen MT Condensed" size="20.0" />
+         </font></TextField>
+      <Label layoutX="1327.0" layoutY="37.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1442.0" layoutY="439.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1325.0" layoutY="339.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1499.0" layoutY="242.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="1385.0" layoutY="138.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="passwordLabel" layoutX="1642.0" layoutY="409.0" prefHeight="54.0" prefWidth="252.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
+         </font>
+      </Label>
     </children>
 </Pane>

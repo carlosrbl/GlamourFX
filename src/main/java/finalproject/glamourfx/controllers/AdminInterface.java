@@ -1,5 +1,6 @@
 package finalproject.glamourfx.controllers;
 
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -23,6 +26,10 @@ public class AdminInterface
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/welcome.fxml"));
             Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -32,7 +39,12 @@ public class AdminInterface
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {
@@ -47,6 +59,10 @@ public class AdminInterface
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/hairdressers.fxml"));
             Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -56,7 +72,12 @@ public class AdminInterface
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {
@@ -71,6 +92,10 @@ public class AdminInterface
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/appointments.fxml"));
             Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -80,7 +105,12 @@ public class AdminInterface
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {
@@ -95,6 +125,10 @@ public class AdminInterface
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/services.fxml"));
             Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -104,7 +138,12 @@ public class AdminInterface
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {
@@ -119,6 +158,10 @@ public class AdminInterface
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customers.fxml"));
             Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -128,7 +171,12 @@ public class AdminInterface
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {
