@@ -43,8 +43,8 @@ public class HairdressersInterface implements Initializable {
     @FXML
     private Button hairdressersUpdate;
 
-    @FXML
-    private Button hairdressersCancel;
+    //@FXML
+    //private Button hairdressersCancel;
 
     @FXML
     private Button hairdressersDelete;
@@ -61,7 +61,7 @@ public class HairdressersInterface implements Initializable {
             hairdresserStars.setText(newValue.getStars()+"");
         });
 
-        String[] orders = {"name", "stars"};
+        String[] orders = {"Name", "Stars"};
         hairdresserOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
         hairdresserOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showOrderedBy(hairdresserOrder.getValue().toString());
@@ -95,8 +95,14 @@ public class HairdressersInterface implements Initializable {
     {
         switch (order)
         {
-            case "name":
+            case "Name":
+                hairdressers.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
+                break;
+            case "Stars":
+                hairdressers.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
+                break;
         }
+        hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
     }
 
     public void loadHairdressers()

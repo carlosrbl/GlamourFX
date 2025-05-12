@@ -14,7 +14,7 @@
                 <Image url="@../img/customer.png" />
             </image>
         </ImageView>
-        <Button layoutX="309.0" layoutY="672.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment">
+        <Button onAction="#loadReservationInterface" layoutX="309.0" layoutY="672.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
@@ -22,7 +22,7 @@
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
          </font></Label>
-      <Button layoutX="741.0" layoutY="677.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments">
+      <Button onAction="#loadCustomerAppointmentsInterface" layoutX="741.0" layoutY="677.0" prefHeight="86.0" prefWidth="409.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

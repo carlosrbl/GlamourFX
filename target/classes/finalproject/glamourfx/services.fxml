@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.glamourfx.data.Service">
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.ServicesInterface">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
             <image>
                 <Image url="@../img/services.png" />
             </image>
         </ImageView>
-        <Button layoutX="1558.0" layoutY="78.0" onAction="#cancel" prefHeight="66.0" prefWidth="212.0" text="Back">
+        <Button id="serviceBack" layoutX="1558.0" layoutY="78.0" onAction="#back" prefHeight="66.0" prefWidth="212.0" text="Back">
             <font>
                 <Font size="48.0" />
             </font></Button>
@@ -24,11 +24,11 @@
             <font>
                 <Font size="60.0" />
             </font></Label>
-        <TextField layoutX="919.0" layoutY="399.0" prefHeight="56.0" prefWidth="420.0">
+        <TextField id="serviceName" layoutX="919.0" layoutY="399.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font></TextField>
-        <ListView layoutX="167.0" layoutY="296.0" prefHeight="602.0" prefWidth="601.0" />
+        <ListView id="serviceList" layoutX="152.0" layoutY="293.0" prefHeight="602.0" prefWidth="601.0" />
         <Label layoutX="195.0" layoutY="80.0" prefHeight="107.0" prefWidth="501.0" text="Services Data" textFill="WHITE">
             <font>
                 <Font size="64.0" />
@@ -39,7 +39,7 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <TextField layoutX="1112.0" layoutY="603.0" prefHeight="56.0" prefWidth="420.0">
+      <TextField id="serviceDuration" layoutX="1112.0" layoutY="603.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -49,19 +49,19 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <TextField layoutX="1408.0" layoutY="393.0" prefHeight="56.0" prefWidth="420.0">
+      <TextField id="servicePrice" layoutX="1408.0" layoutY="393.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font>
       </TextField>
-      <Button layoutX="968.0" layoutY="750.0" onAction="#cancel" prefHeight="102.0" prefWidth="269.0" text="UPDATE">
+      <Button id="serviceUpdate" layoutX="999.0" layoutY="752.0" onAction="#update" prefHeight="49.0" prefWidth="226.0" text="UPDATE">
          <font>
-            <Font size="48.0" />
+            <Font size="36.0" />
          </font>
       </Button>
-      <Button layoutX="1356.0" layoutY="749.0" onAction="#cancel" prefHeight="102.0" prefWidth="344.0" text="CANCEL">
+      <Button id="serviceDelete" layoutX="1523.0" layoutY="752.0" onAction="#delete" prefHeight="49.0" prefWidth="226.0" text="DELETE">
          <font>
-            <Font size="48.0" />
+            <Font size="36.0" />
          </font>
       </Button>
     </children>

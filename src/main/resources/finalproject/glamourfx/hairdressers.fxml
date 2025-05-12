@@ -35,11 +35,6 @@
                 <Font size="64.0" />
             </font>
         </Label>
-      <Button id="hairdressersCancel" layoutX="1549.0" layoutY="626.0" onAction="#cancel" prefHeight="70.0" prefWidth="168.0" text="CANCEL">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
       <TextField id="hairdresserStars" layoutX="1430.0" layoutY="521.0" prefHeight="25.0" prefWidth="314.0">
          <font>
             <Font size="24.0" />
@@ -50,12 +45,12 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button id="hairdressersDelete" layoutX="1323.0" layoutY="628.0" onAction="#cancel" prefHeight="70.0" prefWidth="168.0" text="DELETE">
+      <Button id="hairdressersDelete" layoutX="1503.0" layoutY="627.0"  prefHeight="70.0" prefWidth="168.0" text="DELETE">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button id="hairdressersUpdate" layoutX="1085.0" layoutY="626.0" onAction="#cancel" prefHeight="70.0" prefWidth="168.0" text="UPDATE">
+      <Button id="hairdressersUpdate" layoutX="1085.0" layoutY="626.0" prefHeight="70.0" prefWidth="168.0" text="UPDATE">
          <font>
             <Font size="24.0" />
          </font>

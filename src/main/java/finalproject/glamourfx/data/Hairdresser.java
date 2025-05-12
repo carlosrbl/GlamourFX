@@ -3,7 +3,7 @@ package finalproject.glamourfx.data;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Array;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,9 +50,16 @@ public class Hairdresser extends Person {
     }
 
 
-    public void storeInFile() {
-
-    }
+    /*public void storeInFile(ArrayList<Hairdresser> hairdressers) {
+            try (PrintWriter writer=new PrintWriter("books.txt"))
+            {
+                for(Book book:books){
+                    writer.println(book.write());
+                }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+    }*/
 
 
     @Override
