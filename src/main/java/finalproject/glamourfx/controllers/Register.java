@@ -11,10 +11,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Register
 {
@@ -33,8 +32,8 @@ public class Register
     private void addUser(ActionEvent event)
     {
         boolean passwordTrue = checkPassword();
-        // comprobar que el usuario no exista
-        if (passwordTrue)
+        boolean customerExists = checkCustomer();
+        if (passwordTrue && !customerExists)
         {
             newCustomer();
             try
@@ -64,6 +63,28 @@ public class Register
     private boolean checkPassword()
     {
         return txPassword.getText().equals(txPassword2.getText());
+    }
+
+    private boolean checkCustomer() {
+        List<Customer> customers = new ArrayList<>();
+        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File("customers.txt")))) {
+            String line;
+            while ((line = inputFile.readLine()) != null) {
+                String[] data = line.split(";");
+                customers.add(new Customer(data[0], data[1], data[2], data[3]));
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        boolean customerExists = false;
+        for (Customer customer : customers)
+        {
+            if (!customerExists)
+            {
+                customerExists = customer.getName().equalsIgnoreCase(txName.getText());
+            }
+        }
+        return customerExists;
     }
 
     private void newCustomer()
