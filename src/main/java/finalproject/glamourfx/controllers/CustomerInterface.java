@@ -44,7 +44,7 @@ public class CustomerInterface
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/reservation.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -68,7 +68,7 @@ public class CustomerInterface
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customerAppointments.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
