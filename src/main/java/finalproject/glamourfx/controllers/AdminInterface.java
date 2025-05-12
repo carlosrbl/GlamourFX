@@ -69,7 +69,7 @@ public class AdminInterface
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/appointments.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -93,7 +93,7 @@ public class AdminInterface
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/services.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
@@ -117,7 +117,7 @@ public class AdminInterface
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/register.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customers.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
