@@ -2,16 +2,19 @@ package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;
 import finalproject.glamourfx.main.HelloApplication;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,10 +25,24 @@ import java.util.List;
 
 public class Check
 {
+    private static Check instance;
+
     @FXML
     private TextField txName;
     @FXML
     private PasswordField txPassword;
+    @FXML
+    private Label errorLabel;
+
+    public Check()
+    {
+        instance = this;
+    }
+
+    public static Check getInstance()
+    {
+        return instance;
+    }
 
     @FXML
     private void checkUser(ActionEvent event)
@@ -86,6 +103,10 @@ public class Check
                 {
                     e.printStackTrace();
                 }
+            }
+            else
+            {
+                Check.getInstance().setError("Incorrect data");
             }
         }
     }
@@ -149,5 +170,13 @@ public class Check
         {
             e.printStackTrace();
         }
+    }
+
+    public void setError(String nombre)
+    {
+        errorLabel.setText(nombre);
+        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+        delay.setOnFinished(e -> errorLabel.setText(""));
+        delay.play();
     }
 }

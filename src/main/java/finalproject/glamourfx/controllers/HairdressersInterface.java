@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HairdressersInterface implements Initializable {
+public class HairdressersInterface  implements Initializable {
 
     static List<Hairdresser> hairdressers;
 
