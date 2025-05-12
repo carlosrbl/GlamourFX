@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1460.0" prefWidth="2220.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1460.0" prefWidth="2220.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.CustomersInterface">
    <children>
       <Button layoutX="1587.0" layoutY="41.0" onAction="#cancel" prefHeight="113.0" prefWidth="316.0" text="BACK">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <ImageView fitHeight="1491.0" fitWidth="2237.0" layoutX="-10.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1491.0" fitWidth="2237.0" layoutX="-44.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/customers.png" />
          </image>
@@ -41,7 +41,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <ListView layoutX="359.0" layoutY="146.0" prefHeight="837.0" prefWidth="729.0" />
+      <ListView id="CustomersList" layoutX="359.0" layoutY="146.0" prefHeight="837.0" prefWidth="729.0" />
       <Label layoutX="1254.0" layoutY="511.0" prefHeight="42.0" prefWidth="275.0" text="Phone number" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
@@ -52,10 +52,10 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="65.0" />
          </font>
       </Label>
-      <TextField layoutX="1231.0" layoutY="575.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1234.0" layoutY="452.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1232.0" layoutY="328.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1231.0" layoutY="206.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField id="CustomerPhoneNumber" layoutX="1231.0" layoutY="575.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField id="CustomerEmail" layoutX="1234.0" layoutY="452.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField id="CustomerPassword" layoutX="1232.0" layoutY="328.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField id="CustomerName" layoutX="1231.0" layoutY="206.0" prefHeight="53.0" prefWidth="508.0" />
       <Label layoutX="1267.0" layoutY="130.0" prefHeight="42.0" prefWidth="168.0" text="Name" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
