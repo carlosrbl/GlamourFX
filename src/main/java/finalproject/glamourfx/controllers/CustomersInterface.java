@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,9 +19,11 @@ import javafx.stage.Stage;
 
 
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class CustomersInterface {
+public class CustomersInterface implements Initializable {
     @FXML
     private TextField CustomerPhoneNumber;
     @FXML
@@ -32,22 +35,25 @@ public class CustomersInterface {
     @FXML
     private ListView<Customer> lvCustomers;
 
-    String linea="";
 
-    ArrayList<Customer> customers;
 
-    String [] datos;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        MostrarDatos();
+    }
 
     private ArrayList<Customer> Lector()
     {
+        String [] datos;
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        String linea="";
         try(BufferedReader bf = new BufferedReader(new FileReader("customers.txt")))
         {
-            linea = bf.readLine();
-            while (linea!=null)
+
+            while (( linea = bf.readLine())!=null)
             {
                 datos = linea.split(";");
                 customers.add(new Customer(datos[0],datos[1],datos[2],datos[3]));
-                linea = bf.readLine();
             }
         }
         catch(IOException e)
