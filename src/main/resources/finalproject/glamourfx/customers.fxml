@@ -11,17 +11,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1460.0" prefWidth="2220.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.CustomersInterface">
    <children>
-      <Button layoutX="1587.0" layoutY="41.0" onAction="#cancel" prefHeight="113.0" prefWidth="316.0" text="BACK">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="1491.0" fitWidth="2237.0" layoutX="-44.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/customers.png" />
          </image>
       </ImageView>
-      <Button layoutX="1523.0" layoutY="686.0" onAction="#addUser" prefHeight="85.0" prefWidth="206.0" text="DELETE">
+      <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" prefHeight="85.0" prefWidth="206.0" text="DELETE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -36,7 +31,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1248.0" layoutY="685.0" onAction="#addUser" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
+      <Button layoutX="1248.0" layoutY="685.0" onAction="#update" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -61,5 +56,10 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
+      <Button layoutX="1587.0" layoutY="41.0" onAction="#back" prefHeight="113.0" prefWidth="316.0" text="BACK">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

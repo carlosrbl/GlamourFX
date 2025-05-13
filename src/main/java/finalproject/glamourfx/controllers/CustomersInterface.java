@@ -33,19 +33,25 @@ public class CustomersInterface implements Initializable {
     @FXML
     private TextField CustomerName;
     @FXML
-    private ListView<Customer> lvCustomers;
+    private ListView<Customer> CustomersList;
 
-
+    static ArrayList<Customer> customers;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         MostrarDatos();
+        CustomersList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            CustomerName.setText(newValue.getName());
+            CustomerPassword.setText(newValue.getPassword());
+            CustomerEmail.setText(newValue.getEmail());
+            CustomerPhoneNumber.setText(newValue.getPhoneNumber());
+        });
     }
 
-    private ArrayList<Customer> Lector()
+    public ArrayList<Customer> Lector()
     {
         String [] datos;
-        ArrayList<Customer> customers = new ArrayList<Customer>();
+        customers = new ArrayList<Customer>();
         String linea="";
         try(BufferedReader bf = new BufferedReader(new FileReader("customers.txt")))
         {
@@ -67,6 +73,69 @@ public class CustomersInterface implements Initializable {
     {
         ObservableList<Customer> datosObservables = FXCollections.observableArrayList(Lector());
 
-        lvCustomers.setItems(datosObservables);
+        CustomersList.setItems(datosObservables);
+    }
+
+    public void update(ActionEvent actionEvent)
+    {
+
+        CustomersList.getSelectionModel().getSelectedItem().setName(CustomerName.getText());
+        CustomersList.getSelectionModel().getSelectedItem().setPassword(CustomerPassword.getText());
+        CustomersList.getSelectionModel().getSelectedItem().setEmail(CustomerEmail.getText());
+        CustomersList.getSelectionModel().getSelectedItem().setPhoneNumber(CustomerPhoneNumber.getText());
+
+        try
+        {
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("customers.txt")));
+
+            for(Customer customer : CustomersList.getItems())
+            {
+                writer.println(customer.getName()+";"+customer.getPassword()+";"+customer.getEmail()+";"+customer.getPhoneNumber());
+            }
+            writer.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void delete(ActionEvent actionEvent)
+    {
+        try( PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("customers.txt"))))
+        {
+            customers.remove(CustomersList.getSelectionModel().getSelectedItem());
+            CustomersList.setItems(FXCollections.observableArrayList(customers));
+            for(Customer customer : customers)
+            {
+                writer.println(customer.getName()+";"+customer.getPassword()+";"+customer.getEmail()+";"+customer.getPhoneNumber());
+            }
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    @FXML
+    private void back(ActionEvent actionEvent) {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setTitle("GlamourFX");
+            stage.setScene(scene);
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+
+            stage.show();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }
