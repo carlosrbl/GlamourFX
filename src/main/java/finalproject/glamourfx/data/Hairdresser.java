@@ -1,9 +1,6 @@
 package finalproject.glamourfx.data;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +15,28 @@ public class Hairdresser extends Person {
 
     public void reviseStars(int stars) {
 
+    }
+
+    public int getStars()
+    {
+        return stars;
+    }
+
+    public void setStars(int stars)
+    {
+        this.stars = stars;
+    }
+
+
+    public static void storeInFile(ArrayList<Hairdresser> hairdressers) {
+        try (PrintWriter pw=new PrintWriter("hairdressers.txt"))
+        {
+            for(Hairdresser h:hairdressers){
+                pw.println(h.getName()+";"+h.getStars());
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static List<Hairdresser> getHairdressers() {
@@ -37,30 +56,6 @@ public class Hairdresser extends Person {
         }
         return hairdressers;
     }
-
-
-    public int getStars()
-    {
-        return stars;
-    }
-
-    public void setStars(int stars)
-    {
-        this.stars = stars;
-    }
-
-
-    /*public void storeInFile(ArrayList<Hairdresser> hairdressers) {
-            try (PrintWriter writer=new PrintWriter("books.txt"))
-            {
-                for(Book book:books){
-                    writer.println(book.write());
-                }
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-    }*/
-
 
     @Override
     public String toString() {

@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -43,8 +40,8 @@ public class HairdressersInterface  implements Initializable {
     @FXML
     private Button hairdressersUpdate;
 
-    //@FXML
-    //private Button hairdressersCancel;
+    @FXML
+    private Button hairdressersAdd;
 
     @FXML
     private Button hairdressersDelete;
@@ -104,6 +101,54 @@ public class HairdressersInterface  implements Initializable {
         }
         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
     }
+
+    public boolean emptyField()
+    {
+        return hairdresserName.getText().isEmpty() || hairdresserStars.getText().isEmpty();
+    }
+
+    public void addHairdresser(ActionEvent actionEvent)
+    {
+        if (emptyField())
+        {
+            //cambiar esto
+            errorMessage("Error","Fill the gaps to create a new hairdresser");
+        }
+        else
+        {
+            hairdressers.add(new Hairdresser(hairdresserName.getText(),
+                    Integer.parseInt(hairdresserStars.getText())));
+            hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
+            Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+        }
+
+    }
+    //cambiar esto
+    public void errorMessage(String title, String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(title);
+        alert.setContentText(message);
+    }
+
+    public void updateBook(ActionEvent actionEvent)
+    {
+        hairdressersList.getSelectionModel().getSelectedItem()
+                .setName(hairdresserName.getText());
+        hairdressersList.getSelectionModel().getSelectedItem()
+                .setStars(Integer.parseInt(hairdresserStars.getText()));
+        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+    }
+
+    public void deleteHairdresser (ActionEvent actionEvent)
+    {
+        hairdressers.remove(hairdressersList.getSelectionModel().getSelectedItem());
+        hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
+        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+    }
+
+
 
     public void loadHairdressers()
     {

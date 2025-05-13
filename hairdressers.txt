@@ -1,0 +1,5 @@
+Manuel;5
+Pedro;4
+Maria;5
+Pepa;3
+Jorge;2

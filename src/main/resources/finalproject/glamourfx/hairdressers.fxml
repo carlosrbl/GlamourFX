@@ -45,16 +45,21 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button id="hairdressersDelete" layoutX="1503.0" layoutY="627.0"  prefHeight="70.0" prefWidth="168.0" text="DELETE">
+      <Button id="hairdressersDelete" layoutX="1503.0" layoutY="627.0" prefHeight="70.0" prefWidth="168.0" text="DELETE" onAction="#deleteHairdresser">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button id="hairdressersUpdate" layoutX="1085.0" layoutY="626.0" prefHeight="70.0" prefWidth="168.0" text="UPDATE">
+      <Button id="hairdressersUpdate" layoutX="1304.0" layoutY="627.0" prefHeight="70.0" prefWidth="168.0" text="UPDATE" onAction="#updateBook">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
       <ChoiceBox id="hairdresserOrder" layoutX="524.0" layoutY="956.0" prefWidth="150.0" />
+      <Button id="hairdressersAdd" layoutX="1098.0" layoutY="626.0" prefHeight="70.0" prefWidth="168.0" text="ADD" onAction="#addHairdresser">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
     </children>
 </Pane>
