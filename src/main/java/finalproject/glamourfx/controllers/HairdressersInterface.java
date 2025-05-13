@@ -1,6 +1,7 @@
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Hairdresser;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -48,6 +50,12 @@ public class HairdressersInterface  implements Initializable {
 
     @FXML
     private ChoiceBox hairdresserOrder;
+
+    @FXML
+    private Label errorLabel;
+
+    @FXML
+    private Label errorLabelFields;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -96,7 +104,7 @@ public class HairdressersInterface  implements Initializable {
                 hairdressers.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
                 break;
             case "Stars":
-                hairdressers.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
+                hairdressers.sort((h1, h2) -> Integer.compare(h1.getStars(), h2.getStars()));
                 break;
         }
         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
@@ -104,41 +112,52 @@ public class HairdressersInterface  implements Initializable {
 
     public boolean emptyField()
     {
-        return hairdresserName.getText().isEmpty() || hairdresserStars.getText().isEmpty();
+        return hairdresserName.getText().isEmpty() || hairdresserStars.getText().trim().isEmpty();
     }
 
-    public void addHairdresser(ActionEvent actionEvent)
-    {
-        if (emptyField())
-        {
-            //cambiar esto
-            errorMessage("Error","Fill the gaps to create a new hairdresser");
+    public void addHairdresser(ActionEvent actionEvent) {
+        if (!emptyField()) {
+            if (!(Integer.parseInt(hairdresserStars.getText()) > 5 || Integer.parseInt(hairdresserStars.getText()) < 1))
+            {
+                hairdressers.add(new Hairdresser(hairdresserName.getText(),
+                        Integer.parseInt(hairdresserStars.getText())));
+                hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
+                Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+            }
+            else
+            {
+                setErrorStars("The stars are from 1 to 5");
+            }
         }
         else
         {
-            hairdressers.add(new Hairdresser(hairdresserName.getText(),
-                    Integer.parseInt(hairdresserStars.getText())));
-            hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
-            Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+            setErrorFields("You must fill all the fields.");
         }
 
     }
-    //cambiar esto
-    public void errorMessage(String title, String message)
-    {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information");
-        alert.setHeaderText(title);
-        alert.setContentText(message);
-    }
 
-    public void updateBook(ActionEvent actionEvent)
+    public void updateHairdresser(ActionEvent actionEvent)
     {
-        hairdressersList.getSelectionModel().getSelectedItem()
-                .setName(hairdresserName.getText());
-        hairdressersList.getSelectionModel().getSelectedItem()
-                .setStars(Integer.parseInt(hairdresserStars.getText()));
-        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+        if (!emptyField()) {
+            if (!(Integer.parseInt(hairdresserStars.getText()) > 5 || Integer.parseInt(hairdresserStars.getText()) < 1))
+            {
+
+                hairdressersList.getSelectionModel().getSelectedItem()
+                        .setName(hairdresserName.getText());
+                hairdressersList.getSelectionModel().getSelectedItem()
+                        .setStars(Integer.parseInt(hairdresserStars.getText()));
+                Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+            }
+            else
+            {
+                setErrorStars("The stars are from 1 to 5");
+            }
+        }
+        else
+        {
+            setErrorFields("You must fill all the fields.");
+        }
+
     }
 
     public void deleteHairdresser (ActionEvent actionEvent)
@@ -154,5 +173,21 @@ public class HairdressersInterface  implements Initializable {
     {
         hairdressers = Hairdresser.getHairdressers();
         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
+    }
+
+    public void setErrorStars(String nombre)
+    {
+        errorLabel.setText(nombre);
+        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+        delay.setOnFinished(e -> errorLabel.setText(""));
+        delay.play();
+    }
+
+    public void setErrorFields(String nombre)
+    {
+        errorLabelFields.setText(nombre);
+        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+        delay.setOnFinished(e -> errorLabelFields.setText(""));
+        delay.play();
     }
 }
