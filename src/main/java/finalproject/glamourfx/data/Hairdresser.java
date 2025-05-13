@@ -65,9 +65,6 @@ public class Hairdresser extends Person {
         {
             e.printStackTrace();
         }
-        for (Hairdresser h:hairdressers) {
-            System.out.println(h);
-        }
         return hairdressers;
     }
 

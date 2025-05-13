@@ -33,7 +33,7 @@ public class CustomersInterface implements Initializable {
     @FXML
     private TextField CustomerName;
     @FXML
-    private ListView<Customer> lvCustomers;
+    private ListView<Customer> CustomersList;
 
 
 
@@ -67,6 +67,6 @@ public class CustomersInterface implements Initializable {
     {
         ObservableList<Customer> datosObservables = FXCollections.observableArrayList(Lector());
 
-        lvCustomers.setItems(datosObservables);
+        CustomersList.setItems(datosObservables);
     }
 }
