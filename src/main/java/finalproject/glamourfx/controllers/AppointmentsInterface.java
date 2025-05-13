@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class HairdressersInterface  implements Initializable {
+public class AppointmentsInterface implements Initializable {
 
     static List<Hairdresser> hairdressers;
 
