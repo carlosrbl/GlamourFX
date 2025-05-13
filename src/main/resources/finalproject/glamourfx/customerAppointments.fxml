@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.CustomerInterface">
+   <children>
+      <ImageView fitHeight="1092.0" fitWidth="1940.0" layoutX="-17.0" layoutY="-4.0" preserveRatio="false">
+         <image>
+            <Image url="@../img/customerAppointments.png" />
+         </image>
+      </ImageView>
+      <ListView layoutX="1019.0" layoutY="114.0" prefHeight="664.0" prefWidth="840.0" />
+      <Label layoutX="1033.0" layoutY="9.0" prefHeight="105.0" prefWidth="898.0" text="List of your appointments" textFill="WHITE">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Label>
+      <Label layoutX="230.0" layoutY="233.0" prefHeight="105.0" prefWidth="199.0" text="Hairdresser:" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="443.0" layoutY="231.0" prefHeight="105.0" prefWidth="258.0" text="name" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="228.0" layoutY="452.0" prefHeight="105.0" prefWidth="100.0" text="Date:" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="453.0" prefHeight="105.0" prefWidth="398.0" text="empty" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="230.0" layoutY="560.0" prefHeight="105.0" prefWidth="91.0" text="Price:" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="562.0" prefHeight="105.0" prefWidth="182.0" text="00,00" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="438.0" layoutY="562.0" prefHeight="105.0" prefWidth="52.0" text="€" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="369.0" layoutY="343.0" prefHeight="105.0" prefWidth="398.0" text="empty" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="227.0" layoutY="342.0" prefHeight="105.0" prefWidth="148.0" text="Service:" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="232.0" layoutY="660.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="273.0" style="-fx-background-color: #FF0000;" text="Cancel appointment" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <ChoiceBox layoutX="1313.0" layoutY="794.0" prefHeight="45.0" prefWidth="222.0" />
+      <Label layoutX="1164.0" layoutY="766.0" prefHeight="105.0" prefWidth="148.0" text="Filter by" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

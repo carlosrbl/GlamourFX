@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.Check">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
+         <image>
+            <Image url="@../img/reservations.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1149.0" layoutY="365.0" prefHeight="71.0" prefWidth="330.0" text="Select a hairdresser">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="1476.0" layoutY="391.0" prefWidth="150.0" />
+      <ChoiceBox layoutX="1476.0" layoutY="464.0" prefWidth="150.0" />
+      <Label layoutX="1149.0" layoutY="438.0" prefHeight="71.0" prefWidth="330.0" text="Select service">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="1149.0" layoutY="514.0" prefHeight="71.0" prefWidth="330.0" text="Select date">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <DatePicker layoutX="1452.0" layoutY="539.0" />
+      <Label layoutX="1178.0" layoutY="604.0" text="Total: 00,00€">
+         <font>
+            <Font name="Comic Sans MS" size="64.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="66.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" preserveRatio="false">
+         <image>
+            <Image url="@../img/back.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="8.0" layoutY="3.0" mnemonicParsing="false" opacity="0.0" prefHeight="74.0" prefWidth="100.0" text="back" />
+      <Button layoutX="1220.0" layoutY="743.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #FF0000;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="1402.0" layoutY="742.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #4CAF50;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
