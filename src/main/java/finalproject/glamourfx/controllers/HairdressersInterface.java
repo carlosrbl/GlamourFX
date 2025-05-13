@@ -14,14 +14,14 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HairdressersInterface  implements Initializable {
 
@@ -66,7 +66,7 @@ public class HairdressersInterface  implements Initializable {
             hairdresserStars.setText(newValue.getStars()+"");
         });
 
-        String[] orders = {"Name", "Stars"};
+        String[] orders = {"Name", "Stars", "Name (inverted)", "Stars (inverted)"};
         hairdresserOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
         hairdresserOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showOrderedBy(hairdresserOrder.getValue().toString());
@@ -101,10 +101,16 @@ public class HairdressersInterface  implements Initializable {
         switch (order)
         {
             case "Name":
-                hairdressers.sort((h1, h2) -> h1.getName().compareTo(h2.getName()));
+                hairdressers.sort((h1, h2) -> h1.getName().toLowerCase().compareTo(h2.getName().toLowerCase()));
                 break;
             case "Stars":
                 hairdressers.sort((h1, h2) -> Integer.compare(h1.getStars(), h2.getStars()));
+                break;
+            case "Name (inverted)":
+                hairdressers.sort((h1, h2) -> h2.getName().toLowerCase().compareTo(h1.getName().toLowerCase()));
+                break;
+            case "Stars (inverted)":
+                hairdressers.sort((h1, h2) -> Integer.compare(h2.getStars(), h1.getStars()));
                 break;
         }
         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
@@ -112,45 +118,65 @@ public class HairdressersInterface  implements Initializable {
 
     public boolean emptyField()
     {
-        return hairdresserName.getText().isEmpty() || hairdresserStars.getText().trim().isEmpty();
+        return !hairdresserName.getText().isEmpty() && !hairdresserStars.getText().trim().isEmpty();
     }
 
     public void addHairdresser(ActionEvent actionEvent) {
-        if (!emptyField()) {
-            if (!(Integer.parseInt(hairdresserStars.getText()) > 5 || Integer.parseInt(hairdresserStars.getText()) < 1))
+        if (emptyField()) {
+            if (isValidNumber(hairdresserStars.getText()))
             {
-                hairdressers.add(new Hairdresser(hairdresserName.getText(),
-                        Integer.parseInt(hairdresserStars.getText())));
-                hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
-                Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+                if (!hairdressers.contains(new Hairdresser(hairdresserName.getText(),
+                        Integer.parseInt(hairdresserStars.getText()))))
+                {
+                    if (!(Integer.parseInt(hairdresserStars.getText()) > 5 || Integer.parseInt(hairdresserStars.getText()) < 1))
+                    {
+                        hairdressers.add(new Hairdresser(hairdresserName.getText(),
+                                Integer.parseInt(hairdresserStars.getText())));
+                        hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
+                        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+                    }
+                    else
+                    {
+                        setErrorStars("The stars are from 1 to 5");
+                    }
+                }
+                else {
+                    setErrorFields("This hairdresser already exists.");
+                }
             }
             else
             {
-                setErrorStars("The stars are from 1 to 5");
+                setErrorStars("The number of stars only accept digits.");
             }
         }
         else
         {
             setErrorFields("You must fill all the fields.");
         }
-
     }
 
     public void updateHairdresser(ActionEvent actionEvent)
     {
-        if (!emptyField()) {
-            if (!(Integer.parseInt(hairdresserStars.getText()) > 5 || Integer.parseInt(hairdresserStars.getText()) < 1))
-            {
+        if (emptyField()) {
 
-                hairdressersList.getSelectionModel().getSelectedItem()
-                        .setName(hairdresserName.getText());
-                hairdressersList.getSelectionModel().getSelectedItem()
-                        .setStars(Integer.parseInt(hairdresserStars.getText()));
-                Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+                if (isValidNumber(hairdresserStars.getText()))
+                {
+                    if (!(Integer.parseInt(hairdresserStars.getText()) > 5 || Integer.parseInt(hairdresserStars.getText()) < 1))
+                    {
+                        hairdressersList.getSelectionModel().getSelectedItem()
+                                .setName(hairdresserName.getText());
+                        hairdressersList.getSelectionModel().getSelectedItem()
+                                .setStars(Integer.parseInt(hairdresserStars.getText()));
+                        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+                    }
+                    else
+                    {
+                        setErrorStars("The stars are from 1 to 5");
+                    }
             }
             else
             {
-                setErrorStars("The stars are from 1 to 5");
+                setErrorStars("The number of stars only accept digits.");
             }
         }
         else
@@ -162,12 +188,24 @@ public class HairdressersInterface  implements Initializable {
 
     public void deleteHairdresser (ActionEvent actionEvent)
     {
-        hairdressers.remove(hairdressersList.getSelectionModel().getSelectedItem());
-        hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
-        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+        if (hairdressers.contains(hairdressersList.getSelectionModel().getSelectedItem()))
+        {
+            hairdressers.remove(hairdressersList.getSelectionModel().getSelectedItem());
+            hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
+            Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+        }
+        else {
+            setErrorFields("This users doesn't exist.");
+        }
     }
 
-
+    public boolean isValidNumber(String number)
+    {
+        String expression = "^[0-9]+$";
+        Pattern p = Pattern.compile(expression);
+        Matcher m = p.matcher(number);
+        return m.matches();
+    }
 
     public void loadHairdressers()
     {
