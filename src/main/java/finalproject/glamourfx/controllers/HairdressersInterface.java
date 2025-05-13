@@ -79,11 +79,16 @@ public class HairdressersInterface  implements Initializable {
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
             Parent root = loader.load();
+
+            AdminInterface controller = loader.getController();
+            controller.setClienteName("Admin");
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
+
 
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
