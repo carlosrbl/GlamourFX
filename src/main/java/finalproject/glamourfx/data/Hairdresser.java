@@ -10,11 +10,22 @@ public class Hairdresser extends Person {
     public Hairdresser(String name,int stars)
     {
         super(name);
-
+        reviseStars(stars);
     }
 
     public void reviseStars(int stars) {
-
+        if (stars > 5)
+        {
+            this.stars = 5;
+        }
+        else if (stars < 1)
+        {
+            this.stars = 1;
+        }
+        else
+        {
+            this.stars = stars;
+        }
     }
 
     public int getStars()
@@ -53,6 +64,9 @@ public class Hairdresser extends Person {
         catch (IOException e)
         {
             e.printStackTrace();
+        }
+        for (Hairdresser h:hairdressers) {
+            System.out.println(h);
         }
         return hairdressers;
     }

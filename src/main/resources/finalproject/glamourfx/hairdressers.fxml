@@ -17,7 +17,7 @@
                 <Image url="@../img/hairdresser.png" />
             </image>
         </ImageView>
-        <Button id="hairdressersBack" layoutX="1658.0" layoutY="39.0" onAction="#back" prefHeight="66.0" prefWidth="212.0" text="Back">
+        <Button fx:id="hairdressersBack" layoutX="1658.0" layoutY="39.0" onAction="#back" prefHeight="66.0" prefWidth="212.0" text="Back">
             <font>
                 <Font size="48.0" />
             </font></Button>
@@ -25,17 +25,17 @@
             <font>
                 <Font size="48.0" />
             </font></Label>
-        <TextField id="hairdresserName" layoutX="1021.0" layoutY="525.0" prefHeight="25.0" prefWidth="314.0">
+        <TextField fx:id="hairdresserName" layoutX="1021.0" layoutY="525.0" prefHeight="25.0" prefWidth="314.0">
          <font>
             <Font size="24.0" />
          </font></TextField>
-        <ListView id="hairdressersList" layoutX="357.0" layoutY="389.0" prefHeight="546.0" prefWidth="499.0" />
+        <ListView fx:id="hairdressersList" layoutX="357.0" layoutY="389.0" prefHeight="546.0" prefWidth="499.0" />
         <Label layoutX="75.0" layoutY="33.0" prefHeight="70.0" prefWidth="533.0" text="Hairdressers Data" textFill="WHITE">
             <font>
                 <Font size="64.0" />
             </font>
         </Label>
-      <TextField id="hairdresserStars" layoutX="1430.0" layoutY="521.0" prefHeight="25.0" prefWidth="314.0">
+      <TextField fx:id="hairdresserStars" layoutX="1430.0" layoutY="521.0" prefHeight="25.0" prefWidth="314.0">
          <font>
             <Font size="24.0" />
          </font>
@@ -45,18 +45,18 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button id="hairdressersDelete" layoutX="1503.0" layoutY="627.0" prefHeight="70.0" prefWidth="168.0" text="DELETE" onAction="#deleteHairdresser">
+      <Button fx:id="hairdressersDelete" layoutX="1503.0" layoutY="627.0" prefHeight="70.0" prefWidth="168.0" text="DELETE" onAction="#deleteHairdresser">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button id="hairdressersUpdate" layoutX="1304.0" layoutY="627.0" prefHeight="70.0" prefWidth="168.0" text="UPDATE" onAction="#updateBook">
+      <Button fx:id="hairdressersUpdate" layoutX="1304.0" layoutY="627.0" prefHeight="70.0" prefWidth="168.0" text="UPDATE" onAction="#updateBook">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <ChoiceBox id="hairdresserOrder" layoutX="524.0" layoutY="956.0" prefWidth="150.0" />
-      <Button id="hairdressersAdd" layoutX="1098.0" layoutY="626.0" prefHeight="70.0" prefWidth="168.0" text="ADD" onAction="#addHairdresser">
+      <ChoiceBox fx:id="hairdresserOrder" layoutX="524.0" layoutY="956.0" prefWidth="150.0" />
+      <Button fx:id="hairdressersAdd" layoutX="1098.0" layoutY="626.0" prefHeight="70.0" prefWidth="168.0" text="ADD" onAction="#addHairdresser">
          <font>
             <Font size="24.0" />
          </font>
