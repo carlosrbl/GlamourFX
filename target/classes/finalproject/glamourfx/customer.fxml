@@ -5,6 +5,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.CustomerInterface">
@@ -18,7 +20,7 @@
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
-        <Label fx:id="helloLabel" layoutX="1078.0" layoutY="95.0" prefHeight="143.0" prefWidth="431.0" textFill="WHITE">
+        <Label fx:id="helloLabel" layoutX="1232.0" layoutY="210.0" prefHeight="143.0" prefWidth="383.0" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
          </font></Label>
@@ -27,7 +29,14 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1474.0" layoutY="142.0" onAction="#logOut" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Log out" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="transparent" height="200.0" layoutX="1077.0" layoutY="181.0" stroke="white" strokeType="INSIDE" width="728.0" />
+      <Circle fill="white" layoutX="1161.0" layoutY="281.0" radius="55.0" stroke="transparent" strokeType="INSIDE" />
+      <ImageView fitHeight="107.0" fitWidth="92.0" layoutX="1115.0" layoutY="228.0" preserveRatio="false">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1651.0" layoutY="259.0" onAction="#logOut" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Log out" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

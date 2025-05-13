@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1087.0" prefWidth="1933.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1087.0" prefWidth="1933.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.DatesInterface">
    <children>
       <ImageView fitHeight="1491.0" fitWidth="2822.0" layoutX="-26.0" layoutY="-58.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/dates.png" />
          </image>
       </ImageView>
-      <Button layoutX="1577.0" layoutY="31.0" onAction="#cancel" prefHeight="113.0" prefWidth="316.0" text="BACK">
+      <Button layoutX="1577.0" layoutY="31.0" onAction="#back" prefHeight="113.0" prefWidth="316.0" text="BACK">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1520.0" layoutY="873.0" onAction="#addUser" prefHeight="85.0" prefWidth="206.0" text="DELETE">
+      <Button layoutX="1520.0" layoutY="873.0"  prefHeight="85.0" prefWidth="206.0" text="DELETE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -36,12 +36,12 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1223.0" layoutY="871.0" onAction="#addUser" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
+      <Button layoutX="1223.0" layoutY="871.0"  prefHeight="85.0" prefWidth="206.0" text="UPDATE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <ListView layoutX="349.0" layoutY="136.0" prefHeight="837.0" prefWidth="729.0" />
+      <ListView fx:id="DatesList" layoutX="349.0" layoutY="136.0" prefHeight="837.0" prefWidth="729.0" />
       <Label layoutX="1244.0" layoutY="501.0" prefHeight="42.0" prefWidth="275.0" text="Service" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
@@ -57,17 +57,17 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <TextField layoutX="1221.0" layoutY="794.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField id="DurationDate" layoutX="1221.0" layoutY="794.0" prefHeight="53.0" prefWidth="508.0" />
       <Label layoutX="357.0" layoutY="59.0" prefHeight="71.0" prefWidth="430.0" text="Dates Scheduled" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="65.0" />
          </font>
       </Label>
-      <TextField layoutX="1221.0" layoutY="677.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1221.0" layoutY="565.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1224.0" layoutY="442.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1222.0" layoutY="318.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField layoutX="1221.0" layoutY="196.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField fx:id="PriceDate" layoutX="1221.0" layoutY="677.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField fx:id="ServiceDate" layoutX="1221.0" layoutY="565.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField fx:id="HairdresserDate" layoutX="1224.0" layoutY="442.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField fx:id="CustomerDate" layoutX="1222.0" layoutY="318.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField fx:id="TimeOfDate" layoutX="1221.0" layoutY="196.0" prefHeight="53.0" prefWidth="508.0" />
       <Label layoutX="1257.0" layoutY="120.0" prefHeight="42.0" prefWidth="168.0" text="Time" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
