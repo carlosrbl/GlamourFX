@@ -36,7 +36,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1223.0" layoutY="871.0"  prefHeight="85.0" prefWidth="206.0" text="UPDATE">
+      <Button layoutX="1223.0" layoutY="871.0" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

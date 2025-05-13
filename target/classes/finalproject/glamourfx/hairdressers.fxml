@@ -25,7 +25,7 @@
             <font>
                 <Font size="48.0" />
             </font></Label>
-        <TextField fx:id="hairdresserName" layoutX="980.0" layoutY="560.0" prefHeight="25.0" prefWidth="314.0">
+        <TextField fx:id="hairdresserName" layoutX="980.0" layoutY="560.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
          <font>
             <Font size="24.0" />
          </font></TextField>
@@ -35,7 +35,7 @@
                 <Font size="64.0" />
             </font>
         </Label>
-      <TextField fx:id="hairdresserStars" layoutX="1415.0" layoutY="557.0" prefHeight="25.0"  prefWidth="314.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+      <TextField fx:id="hairdresserStars" layoutX="1415.0" layoutY="557.0" prefHeight="25.0"  prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
          <font>
             <Font size="24.0" />
          </font>
