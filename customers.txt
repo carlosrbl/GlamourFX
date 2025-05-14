@@ -1,5 +1,4 @@
 a;a;a;a
 miguel;miguel;miguel@gmail.com;654182541
 carlos;carlos;carlos@gmail.com;654182542
-adrian;adrian;adrian@gmail.com;654182543
 nehuen;nehuen;nehuen@gmail.com;654182544
