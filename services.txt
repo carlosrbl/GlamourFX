@@ -1,0 +1,5 @@
+Corte de pelo;10
+Tinte + decoloracion;20
+Perfilado de barba;5
+Corte + perfilado;13
+Corte de pelo largo;18
