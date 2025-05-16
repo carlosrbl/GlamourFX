@@ -124,6 +124,9 @@ public class CustomersInterface implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
+            AdminInterface controller = loader.getController();
+            controller.setClienteName("Admin");
+
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);

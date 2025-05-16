@@ -60,7 +60,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="hairdresserOrder" layoutX="524.0" layoutY="956.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="hairdresserOrder" layoutX="524.0" layoutY="956.0" prefWidth="150.0" value="Order"/>
       <Button fx:id="hairdressersAdd" layoutX="1050.0" layoutY="663.0" onAction="#addHairdresser" prefHeight="70.0" prefWidth="168.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="ADD" textFill="WHITE">
          <font>
             <Font size="24.0" />

@@ -39,7 +39,7 @@ public class Hairdresser extends Person {
     }
 
 
-    public static void storeInFile(ArrayList<Hairdresser> hairdressers) {
+    public static void storeInFile(List<Hairdresser> hairdressers) {
         try (PrintWriter pw=new PrintWriter("hairdressers.txt"))
         {
             for(Hairdresser h:hairdressers){

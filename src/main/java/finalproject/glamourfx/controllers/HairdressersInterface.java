@@ -49,7 +49,7 @@ public class HairdressersInterface  implements Initializable {
     private Button hairdressersDelete;
 
     @FXML
-    private ChoiceBox hairdresserOrder;
+    private ChoiceBox<String> hairdresserOrder;
 
     @FXML
     private Label errorLabel;
@@ -69,7 +69,7 @@ public class HairdressersInterface  implements Initializable {
         String[] orders = {"Name", "Stars", "Name (inverted)", "Stars (inverted)"};
         hairdresserOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
         hairdresserOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            showOrderedBy(hairdresserOrder.getValue().toString());
+            showOrderedBy(hairdresserOrder.getValue());
         });
     }
 
@@ -138,7 +138,7 @@ public class HairdressersInterface  implements Initializable {
                         hairdressers.add(new Hairdresser(hairdresserName.getText(),
                                 Integer.parseInt(hairdresserStars.getText())));
                         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
-                        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+                        Hairdresser.storeInFile(hairdressers);
                     }
                     else
                     {
@@ -172,7 +172,7 @@ public class HairdressersInterface  implements Initializable {
                                 .setName(hairdresserName.getText());
                         hairdressersList.getSelectionModel().getSelectedItem()
                                 .setStars(Integer.parseInt(hairdresserStars.getText()));
-                        Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+                        Hairdresser.storeInFile(hairdressers);
                     }
                     else
                     {
@@ -197,7 +197,7 @@ public class HairdressersInterface  implements Initializable {
         {
             hairdressers.remove(hairdressersList.getSelectionModel().getSelectedItem());
             hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
-            Hairdresser.storeInFile((ArrayList<Hairdresser>) hairdressers);
+            Hairdresser.storeInFile(hairdressers);
         }
         else {
             setErrorFields("This users doesn't exist.");

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -16,30 +17,35 @@
                 <Image url="@../img/services.png" />
             </image>
         </ImageView>
-        <Button id="serviceBack" layoutX="1558.0" layoutY="78.0" onAction="#back" prefHeight="66.0" prefWidth="212.0" text="Back">
+      <ImageView fitHeight="110.0" fitWidth="134.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/back.png" />
+         </image>
+      </ImageView>
+        <Button id="serviceBack" layoutX="41.0" layoutY="40.0" onAction="#back" opacity="0.0" prefHeight="102.0" prefWidth="135.0">
             <font>
                 <Font size="48.0" />
             </font></Button>
-        <Label layoutX="1074.0" layoutY="296.0" prefHeight="88.0" prefWidth="163.0" text="Name" textFill="WHITE">
+        <Label layoutX="1055.0" layoutY="286.0" prefHeight="88.0" prefWidth="163.0" text="Name" textFill="WHITE">
             <font>
                 <Font size="60.0" />
             </font></Label>
-        <TextField id="serviceName" layoutX="919.0" layoutY="399.0" prefHeight="56.0" prefWidth="420.0">
+        <TextField id="serviceName" fx:id="servicesName" layoutX="919.0" layoutY="399.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font></TextField>
-        <ListView id="serviceList" layoutX="152.0" layoutY="293.0" prefHeight="602.0" prefWidth="601.0" />
-        <Label layoutX="195.0" layoutY="80.0" prefHeight="107.0" prefWidth="501.0" text="Services Data" textFill="WHITE">
+        <ListView id="serviceList" fx:id="servicesList" layoutX="152.0" layoutY="293.0" prefHeight="602.0" prefWidth="601.0" />
+        <Label layoutX="1125.0" layoutY="71.0" prefHeight="107.0" prefWidth="501.0" text="Services Data" textFill="WHITE">
             <font>
                 <Font size="64.0" />
             </font>
         </Label>
-      <Label layoutX="1545.0" layoutY="284.0" prefHeight="88.0" prefWidth="146.0" text="Price" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="1551.0" layoutY="283.0" prefHeight="88.0" prefWidth="146.0" text="Price" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Label>
-      <TextField id="serviceDuration" layoutX="1112.0" layoutY="603.0" prefHeight="56.0" prefWidth="420.0">
+      <TextField id="serviceDuration" fx:id="servicesDuration" layoutX="1112.0" layoutY="603.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font>
@@ -49,20 +55,29 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <TextField id="servicePrice" layoutX="1408.0" layoutY="393.0" prefHeight="56.0" prefWidth="420.0">
+      <TextField id="servicePrice" fx:id="servicesPrice" layoutX="1408.0" layoutY="393.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font>
       </TextField>
-      <Button id="serviceUpdate" layoutX="999.0" layoutY="752.0" onAction="#update" prefHeight="49.0" prefWidth="226.0" text="UPDATE">
+      <Button id="serviceUpdate" fx:id="servicesUpdate" layoutX="1263.0" layoutY="752.0" prefHeight="49.0" prefWidth="226.0" text="UPDATE" onAction="#updateService">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button id="serviceDelete" layoutX="1523.0" layoutY="752.0" onAction="#delete" prefHeight="49.0" prefWidth="226.0" text="DELETE">
+      <Button id="serviceDelete" fx:id="servicesDelete" layoutX="1523.0" layoutY="752.0" prefHeight="49.0" prefWidth="226.0" text="DELETE" onAction="#deleteService">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
+      <Button id="serviceAdd" fx:id="servicesAdd" layoutX="1012.0" layoutY="752.0" prefHeight="49.0" prefWidth="226.0" text="ADD" onAction="#addService">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorFields" layoutX="945.0" layoutY="463.0" prefHeight="24.0" prefWidth="376.0" textFill="RED" />
+      <Label fx:id="errorPrice" layoutX="1448.0" layoutY="451.0" prefHeight="24.0" prefWidth="376.0" textFill="RED" />
+      <Label fx:id="errorDuration" layoutX="1137.0" layoutY="659.0" prefHeight="24.0" prefWidth="376.0" textFill="RED" />
+      <ChoiceBox fx:id="servicesOrder" layoutX="378.0" layoutY="912.0" prefWidth="150.0" value="Order"/>
     </children>
 </Pane>
