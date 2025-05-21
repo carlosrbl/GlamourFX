@@ -43,6 +43,8 @@ public class Reservations implements Initializable
     private Label cancelLabel;
     @FXML
     private Label confirmLabel;
+    @FXML
+    private Label totalLabel;
 
     private void loadHairdressers()
     {
@@ -122,6 +124,50 @@ public class Reservations implements Initializable
         stage.show();
     }
 
+    private double getServicePrice(String serviceName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("services.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length >= 2 && parts[0].trim().equals(serviceName)) {
+                    return Double.parseDouble(parts[1].trim());
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+    private double getHairdresserExtra(String hairdresserName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("hairdressers.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length >= 3 && parts[0].trim().equals(hairdresserName)) {
+                    return Double.parseDouble(parts[2].trim());
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+    private void updateTotalPrice() {
+        String selectedService = selectService.getValue();
+        String selectedHairdresser = selectHairdresser.getValue();
+
+        if (selectedService != null && selectedHairdresser != null) {
+            double servicePrice = getServicePrice(selectedService);
+            double hairdresserExtra = getHairdresserExtra(selectedHairdresser);
+            double total = servicePrice + hairdresserExtra;
+
+            totalLabel.setText(String.format("%.2f €", total));
+        } else {
+            totalLabel.setText("");
+        }
+    }
+
+
 
     //Mensajes de confirmación, error y cancelación
     public void setErrorStars(String nombre)
@@ -151,5 +197,7 @@ public class Reservations implements Initializable
     {
         loadHairdressers();
         loadServices();
+        selectService.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> updateTotalPrice());
+        selectHairdresser.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> updateTotalPrice());
     }
 }

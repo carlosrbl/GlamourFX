@@ -32,9 +32,9 @@
          </font>
       </Label>
       <DatePicker fx:id="datePicker" layoutX="1452.0" layoutY="539.0" />
-      <Label layoutX="1178.0" layoutY="604.0" text="Total: 00,00€">
+      <Label layoutX="1178.0" layoutY="604.0" text="Total:">
          <font>
-            <Font name="Comic Sans MS" size="64.0" />
+            <Font size="64.0" />
          </font>
       </Label>
       <ImageView fitHeight="66.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" preserveRatio="false">
@@ -56,5 +56,10 @@
       <Label fx:id="cancelLabel" layoutX="1225.0" layoutY="717.0" prefHeight="17.0" prefWidth="339.0" textFill="RED" />
       <Label fx:id="confirmLabel" layoutX="1220.0" layoutY="717.0" prefHeight="17.0" prefWidth="342.0" textFill="#3df500" />
       <Label fx:id="errorLabel" layoutX="1222.0" layoutY="719.0" prefHeight="17.0" prefWidth="216.0" textFill="RED" />
+      <Label fx:id="totalLabel" layoutX="1361.0" layoutY="604.0" prefHeight="91.0" prefWidth="288.0">
+         <font>
+            <Font name="Comic Sans MS" size="64.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
