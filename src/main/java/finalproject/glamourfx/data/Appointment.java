@@ -6,42 +6,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Appointment {
-    private String name;
     private LocalDateTime time;
-    private Customer customer;
-    private Hairdresser hairdresser;
-    private List<Service> services;
+    private String customer;
+    private String hairdresser;
     private double totalPrice;
-    private int totalDuration;
 
-    public Appointment(String name, LocalDateTime time, Customer customer,
-                       Hairdresser hairdresser, List<Service> services, double totalPrice, int totalDuration) {
-        this.name = name;
+    public Appointment(LocalDateTime time, String customer,
+                       String hairdresser,double totalPrice) {
         this.time = time;
         this.customer = customer;
         this.hairdresser = hairdresser;
-        this.services = services;
         this.totalPrice = totalPrice;
-        this.totalDuration = totalDuration;
     }
 
-    private String showServices()
-    {
-        String[] listServices = new String[services.size()];
-        for (int i = 0; i < listServices.length; i++)
-        {
-            listServices[i] = services.get(i).getName();
-        }
-        return Arrays.toString(listServices);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public LocalDateTime getTime() {
         return time;
@@ -51,27 +28,19 @@ public class Appointment {
         this.time = time;
     }
 
-    public Customer getCustomer() {
+    public String getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(String customer) {
         this.customer = customer;
     }
 
-    public List<Service> getServices() {
-        return services;
-    }
-
-    public void setServices(List<Service> services) {
-        this.services = services;
-    }
-
-    public Hairdresser getHairdresser() {
+    public String getHairdresser() {
         return hairdresser;
     }
 
-    public void setHairdresser(Hairdresser hairdresser) {
+    public void setHairdresser(String hairdresser) {
         this.hairdresser = hairdresser;
     }
 
@@ -83,17 +52,9 @@ public class Appointment {
         this.totalPrice = totalPrice;
     }
 
-    public int getTotalDuration() {
-        return totalDuration;
-    }
-
-    public void setTotalDuration(int totalDuration) {
-        this.totalDuration = totalDuration;
-    }
-
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        return name + ", Fecha y hora: " + time.format(formatter) + ", " + customer.getName() + ", " + hairdresser.getName() + ", Services: " + showServices() + ", " + totalPrice + " €, " + totalDuration + " min";
+        return " Fecha y hora: " + time.format(formatter) + ", " + customer + ", " + hairdresser + ", " + totalPrice + " €, ";
     }
 }

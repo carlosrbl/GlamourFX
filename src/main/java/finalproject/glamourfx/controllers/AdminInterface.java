@@ -90,7 +90,7 @@ public class AdminInterface
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/appointments.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/dates.fxml"));
             Parent root = loader.load();
 
             root.setRotationAxis( Rotate.Y_AXIS);

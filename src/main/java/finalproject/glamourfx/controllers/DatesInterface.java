@@ -42,7 +42,6 @@ public class DatesInterface {
             while((linea = br.readLine()) != null)
             {
                 appointments = linea.split(";");
-
             }
         }
         catch(Exception e)
