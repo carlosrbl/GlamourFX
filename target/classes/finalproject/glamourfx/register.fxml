@@ -26,11 +26,11 @@
                 <Image url="@../img/back.png" />
             </image>
         </ImageView>
-        <Button fx:id="yourButton2" layoutX="1743.0" layoutY="316.0" onAction="#cancel" onMouseEntered="#changeCursor2ToHand" onMouseExited="#changeCursor2ToDefault" prefHeight="56.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
+        <Button layoutX="1743.0" layoutY="316.0" onAction="#cancel" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
-        <Button fx:id="yourButton" layoutX="1729.0" layoutY="237.0" onAction="#addUser" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
+        <Button layoutX="1729.0" layoutY="237.0" onAction="#addUser" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>

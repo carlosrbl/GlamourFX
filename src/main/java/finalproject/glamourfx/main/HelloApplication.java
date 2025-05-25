@@ -18,7 +18,7 @@ public class HelloApplication extends Application
     {
         Parent root = FXMLLoader.load(getClass().getResource("/finalproject/glamourfx/welcome.fxml"));
 
-        root.setRotationAxis( Rotate.Y_AXIS);
+        root.setRotationAxis(Rotate.Y_AXIS);
         root.setRotate(-90);
 
         Scene scene = new Scene(root);

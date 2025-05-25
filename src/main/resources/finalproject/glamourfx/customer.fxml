@@ -20,7 +20,7 @@
                 <Image url="@../img/logOut.png" />
             </image>
         </ImageView>
-        <Button layoutX="447.0" layoutY="581.0" onAction="#loadReservationInterface" prefHeight="159.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment" textAlignment="CENTER" textFill="black">
+        <Button layoutX="447.0" layoutY="581.0" onAction="#loadReservationInterface" prefHeight="159.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment" textAlignment="CENTER" textFill="black" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="40.0" />
             </font></Button>
@@ -28,7 +28,7 @@
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
          </font></Label>
-      <Button layoutX="448.0" layoutY="770.0" onAction="#loadCustomerAppointmentsInterface" prefHeight="139.0" prefWidth="547.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments" textAlignment="CENTER" textFill="black">
+      <Button layoutX="448.0" layoutY="770.0" onAction="#loadCustomerAppointmentsInterface" prefHeight="139.0" prefWidth="547.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments" textAlignment="CENTER" textFill="black" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="40.0" />
          </font>
@@ -39,7 +39,7 @@
             <Image url="@../img/user.png" />
          </image>
       </ImageView>
-      <Button fx:id="yourButton" layoutX="1727.0" layoutY="238.0" onAction="#logOut" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="76.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+      <Button layoutX="1727.0" layoutY="238.0" onAction="#logOut" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="76.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="35.0" />
          </font>

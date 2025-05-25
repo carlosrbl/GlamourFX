@@ -10,18 +10,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class CustomerInterface
+public class CustomerInterface implements ButtonCursor
 {
     @FXML
     private Label helloLabel;
-    @FXML
-    private Button yourButton;
 
     @FXML
     private void logOut(ActionEvent event)
@@ -127,11 +126,13 @@ public class CustomerInterface
         helloLabel.setText("Hello, " + nombre.substring(0,1).toUpperCase() + nombre.substring(1) + "!");
     }
 
-    public void changeCursorToHand() {
-        yourButton.setCursor(Cursor.HAND);
+    public void changeCursorToHand(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.HAND);
     }
 
-    public void changeCursorToDefault() {
-        yourButton.setCursor(Cursor.DEFAULT);
+    public void changeCursorToDefault(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.DEFAULT);
     }
 }

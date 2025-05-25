@@ -21,8 +21,6 @@ public class AdminInterface implements ButtonCursor
 {
     @FXML
     private Label helloLabel;
-    @FXML
-    private Button yourButton;
 
     @FXML
     private void logOut(ActionEvent event)

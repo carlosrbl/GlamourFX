@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -23,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Check
+public class Check implements ButtonCursor
 {
     private static Check instance;
 
@@ -33,10 +34,6 @@ public class Check
     private PasswordField txPassword;
     @FXML
     private Label errorLabel;
-    @FXML
-    private Button yourButton;
-    @FXML
-    private Button yourButton2;
 
     public Check()
     {
@@ -208,19 +205,13 @@ public class Check
         delay.play();
     }
 
-    public void changeCursorToHand() {
-        yourButton.setCursor(Cursor.HAND);
+    public void changeCursorToHand(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.HAND);
     }
 
-    public void changeCursorToDefault() {
-        yourButton.setCursor(Cursor.DEFAULT);
-    }
-
-    public void changeCursor2ToHand() {
-        yourButton2.setCursor(Cursor.HAND);
-    }
-
-    public void changeCursor2ToDefault() {
-        yourButton2.setCursor(Cursor.DEFAULT);
+    public void changeCursorToDefault(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.DEFAULT);
     }
 }
