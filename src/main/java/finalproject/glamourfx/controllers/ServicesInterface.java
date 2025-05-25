@@ -8,10 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.w3c.dom.Text;
@@ -25,7 +27,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ServicesInterface implements Initializable {
+public class ServicesInterface implements Initializable, ButtonCursor {
 
     @FXML
     private ListView<Service> servicesList;
@@ -51,11 +53,13 @@ public class ServicesInterface implements Initializable {
     @FXML
     private Label errorPrice;
 
-
     @FXML
     private ChoiceBox<String> servicesOrder;
 
     static List<Service> services;
+
+    @FXML
+    private Button servicesButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -228,5 +232,15 @@ public class ServicesInterface implements Initializable {
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(e -> errorFields.setText(""));
         delay.play();
+    }
+
+    public void changeCursorToHand(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.HAND);
+    }
+
+    public void changeCursorToDefault(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.DEFAULT);
     }
 }

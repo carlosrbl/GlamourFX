@@ -20,21 +20,21 @@
                 <Image url="@../img/logOut.png" />
             </image>
         </ImageView>
-        <Button layoutX="443.0" layoutY="585.0" onAction="#loadAppointmentsInterface" prefHeight="86.0" prefWidth="550.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See appointments" textAlignment="CENTER" textFill="black">
+        <Button layoutX="443.0" layoutY="585.0" onAction="#loadAppointmentsInterface"  onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="86.0" prefWidth="550.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See appointments" textAlignment="CENTER" textFill="black">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font></Button>
-        <Button layoutX="445.0" layoutY="671.0" onAction="#loadServicesInterface" prefHeight="86.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See services" textAlignment="CENTER" textFill="black">
+        <Button layoutX="445.0" layoutY="671.0" onAction="#loadServicesInterface" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="86.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See services" textAlignment="CENTER" textFill="black">
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
             </font>
         </Button>
-      <Button layoutX="452.0" layoutY="853.0" onAction="#loadHairdressersInterface" prefHeight="86.0" prefWidth="541.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See hairdressers" textAlignment="CENTER" textFill="black">
+      <Button layoutX="452.0" layoutY="853.0" onAction="#loadHairdressersInterface" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="86.0" prefWidth="541.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See hairdressers" textAlignment="CENTER" textFill="black">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="447.0" layoutY="757.0" onAction="#loadCustomersInterface" prefHeight="86.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See customers" textAlignment="CENTER" textFill="black">
+      <Button layoutX="447.0" layoutY="757.0" onAction="#loadCustomersInterface" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="86.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See customers" textAlignment="CENTER" textFill="black">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
