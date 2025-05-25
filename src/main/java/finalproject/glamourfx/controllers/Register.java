@@ -59,7 +59,8 @@ public class Register implements ButtonCursor
         {
             if (passwordTrue)
             {
-                if (!anyEmptyField()) {
+                if (!anyEmptyField())
+                {
                     newCustomer();
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
@@ -145,6 +146,8 @@ public class Register implements ButtonCursor
         {
             System.out.println(e.getMessage());
         }
+        Customer customer = new Customer(txName.getText(), txPassword.getText(), txEmail.getText(), txPhoneNumber.getText());
+        SessionManager.setCurrentCustomer(customer);
     }
 
     @FXML

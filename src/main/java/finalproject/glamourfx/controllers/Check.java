@@ -89,6 +89,7 @@ public class Check implements ButtonCursor
             boolean found = check(customers);
             if (found)
             {
+                userLogged(customers);
                 try
                 {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
@@ -163,6 +164,19 @@ public class Check implements ButtonCursor
             }
         }
         return exists;
+    }
+
+    private void userLogged(List<Customer> customers)
+    {
+        boolean ok = false;
+        for (Customer customer : customers)
+        {
+            if (customer.getName().equalsIgnoreCase(txName.getText()) && !ok)
+            {
+                SessionManager.setCurrentCustomer(customer);
+                ok = true;
+            }
+        }
     }
 
     @FXML

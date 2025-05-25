@@ -125,6 +125,9 @@ public class Reservations implements Initializable
             root.setRotationAxis( Rotate.Y_AXIS);
             root.setRotate(-90);
 
+            CustomerInterface controller = loader.getController();
+            controller.setClienteName(SessionManager.getCurrentCustomer().getName());
+
             Scene scene = new Scene(root);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
