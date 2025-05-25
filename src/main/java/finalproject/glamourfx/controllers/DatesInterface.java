@@ -15,9 +15,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.time.LocalDate;
@@ -41,7 +39,7 @@ public class DatesInterface implements Initializable {
     @FXML
     private ListView<Appointment> DatesList;
 
-
+    static ArrayList<Appointment> appointmentList;
 
 
     @Override
@@ -60,7 +58,7 @@ public class DatesInterface implements Initializable {
     {
         String [] appointments;
         String linea;
-        ArrayList<Appointment> appointmentList = new ArrayList<>();
+        appointmentList = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader("reservations.txt")))
         {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -82,6 +80,50 @@ public class DatesInterface implements Initializable {
     {
         ObservableList<Appointment> datosObservables = FXCollections.observableArrayList(Lector());
         DatesList.setItems(datosObservables);
+    }
+
+    public void update(ActionEvent actionEvent)
+    {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        DatesList.getSelectionModel().getSelectedItem().setTotalPrice(Double.parseDouble(PriceDate.getText()));
+        DatesList.getSelectionModel().getSelectedItem().setTime(LocalDate.parse(TimeOfDate.getText(), formatter));
+        DatesList.getSelectionModel().getSelectedItem().setCustomer(CustomerDate.getText());
+        DatesList.getSelectionModel().getSelectedItem().setHairdresser(HairdresserDate.getText());
+        DatesList.getSelectionModel().getSelectedItem().setService(ServiceDate.getText());
+
+        try
+        {
+            PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("reservations.txt")));
+
+            for(Appointment appointment : DatesList.getItems())
+            {
+                writer.println(appointment.getHairdresser()+";"+appointment.getService()+";"+appointment.getTime()+";"+appointment.getTotalPrice()+";"+appointment.getCustomer());
+            }
+            writer.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void delete(ActionEvent actionEvent)
+    {
+        try( PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("reservations.txt"))))
+        {
+            appointmentList.remove(DatesList.getSelectionModel().getSelectedItem());
+            DatesList.setItems(FXCollections.observableArrayList(appointmentList));
+            for(Appointment appointment : appointmentList)
+            {
+                writer.println(appointment.getHairdresser()+";"+appointment.getService()+";"+appointment.getTime()+";"+appointment.getTotalPrice()+";"+appointment.getCustomer());
+            }
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
 
