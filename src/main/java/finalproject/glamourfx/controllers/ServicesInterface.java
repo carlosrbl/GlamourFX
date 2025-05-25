@@ -37,9 +37,6 @@ public class ServicesInterface implements Initializable {
     private TextField servicesPrice;
 
     @FXML
-    private TextField servicesDuration;
-
-    @FXML
     private Button servicesAdd;
 
     @FXML
@@ -54,8 +51,6 @@ public class ServicesInterface implements Initializable {
     @FXML
     private Label errorPrice;
 
-    @FXML
-    private Label errorDuration;
 
     @FXML
     private ChoiceBox<String> servicesOrder;
@@ -69,10 +64,9 @@ public class ServicesInterface implements Initializable {
         servicesList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             servicesName.setText(newValue.getName());
             servicesPrice.setText(newValue.getPrice()+"");
-            servicesDuration.setText(newValue.getDuration()+"");
         });
 
-        String[] orders = {"Name", "Name (inverted)", "Price", "Price (inverted)", "Duration", "Duration (inverted)"};
+        String[] orders = {"Name", "Name (inverted)", "Price", "Price (inverted)"};
         servicesOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
         servicesOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showOrderedBy(servicesOrder.getValue());
@@ -94,12 +88,6 @@ public class ServicesInterface implements Initializable {
                 break;
             case "Price (inverted)":
                 services.sort((s1, s2)->Double.compare(s2.getPrice(), s1.getPrice()));
-                break;
-            case "Duration":
-                services.sort((s1,s2)->Integer.compare(s1.getDuration(), s2.getDuration()));
-                break;
-            case "Duration (inverted)":
-                services.sort((s1,s2)->Integer.compare(s2.getDuration(), s1.getDuration()));
                 break;
         }
 
@@ -134,7 +122,7 @@ public class ServicesInterface implements Initializable {
 
     public boolean emptyField()
     {
-        return !servicesName.getText().isEmpty() && !servicesPrice.getText().isEmpty() && !servicesDuration.getText().isEmpty();
+        return !servicesName.getText().isEmpty() && !servicesPrice.getText().isEmpty();
     }
 
 
@@ -142,28 +130,17 @@ public class ServicesInterface implements Initializable {
     {
         if (noErrorInFields())
         {
-            if (!(services.contains(new Service(servicesName.getText(), Double.parseDouble(servicesPrice.getText()),
-                    Integer.parseInt(servicesDuration.getText())))))
+            if (!(services.contains(new Service(servicesName.getText(), Double.parseDouble(servicesPrice.getText())))))
             {
-
-                if (isValidDuration(servicesDuration.getText()))
-                {
                     if (isValidPrice(servicesPrice.getText()))
                     {
-                        services.add(new Service(servicesName.getText(), Double.parseDouble(servicesPrice.getText()),
-                                Integer.parseInt(servicesDuration.getText())));
+                        services.add(new Service(servicesName.getText(), Double.parseDouble(servicesPrice.getText())));
                         servicesList.setItems(FXCollections.observableArrayList(services));
                         Service.storeInFile(services);
                     }
-                    else
-                    {
+                    else {
                         setErrorPrice("The price has to be a valid number.");
                     }
-                }
-                else
-                {
-                    setErrorDuration("The duration has to be a valid number.");
-                }
             }
             else
             {
@@ -176,25 +153,16 @@ public class ServicesInterface implements Initializable {
     {
         if (noErrorInFields())
         {
-            if (isValidDuration(servicesDuration.getText()))
+            if (isValidPrice(servicesPrice.getText()))
             {
-                if (isValidPrice(servicesPrice.getText()))
-                {
-                    servicesList.getSelectionModel().getSelectedItem()
-                            .setName(servicesName.getText());
-                    servicesList.getSelectionModel().getSelectedItem()
-                            .setPrice(Double.parseDouble(servicesPrice.getText()));
-                    servicesList.getSelectionModel().getSelectedItem()
-                            .setDuration(Integer.parseInt(servicesDuration.getText()));
-                }
-                else
-                {
-                    setErrorPrice("The price has to be a valid number.");
-                }
+                servicesList.getSelectionModel().getSelectedItem()
+                        .setName(servicesName.getText());
+                servicesList.getSelectionModel().getSelectedItem()
+                        .setPrice(Double.parseDouble(servicesPrice.getText()));
             }
             else
             {
-                setErrorDuration("The duration has to be a valid number.");
+                setErrorPrice("The price has to be a valid number.");
             }
         }
     }
@@ -215,15 +183,7 @@ public class ServicesInterface implements Initializable {
         boolean comprove = true;
         if (emptyField())
         {
-            if (Double.parseDouble(servicesPrice.getText()) > 0)
-            {
-                if (Integer.parseInt(servicesDuration.getText()) < 0)
-                {
-                    setErrorDuration("The duration can't be less than 0.");
-                    comprove = false;
-                }
-            }
-            else
+            if (Double.parseDouble(servicesPrice.getText()) < 0)
             {
                 setErrorPrice("The price can't be less than 0.");
                 comprove = false;
@@ -246,14 +206,6 @@ public class ServicesInterface implements Initializable {
         return m.matches();
     }
 
-    public boolean isValidDuration(String number)
-    {
-        String expression = "^\\d+$";
-        Pattern p = Pattern.compile(expression);
-        Matcher m = p.matcher(number);
-        return m.matches();
-    }
-
 
     public void loadServices()
     {
@@ -269,13 +221,6 @@ public class ServicesInterface implements Initializable {
         delay.play();
     }
 
-    public void setErrorDuration(String nombre)
-    {
-        errorDuration.setText(nombre);
-        PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorDuration.setText(""));
-        delay.play();
-    }
 
     public void setErrorFields(String nombre)
     {

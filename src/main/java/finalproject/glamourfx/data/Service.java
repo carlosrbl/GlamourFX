@@ -12,10 +12,9 @@ public class Service {
     private double price;
     private int duration;
 
-    public Service(String name, double price, int duration) {
+    public Service(String name, double price) {
         this.name = name;
         this.price = price;
-        this.duration = duration;
     }
 
     public String getName() {
@@ -38,9 +37,6 @@ public class Service {
         return duration;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
 
     public static ArrayList<Service> getServices() {
         ArrayList<Service> services = new ArrayList<>();
@@ -51,8 +47,7 @@ public class Service {
             while ((line = bf.readLine()) != null)
              {
                    parts = line.split(";");
-                   services.add(new Service(parts[0], Double.parseDouble(parts[1]),
-                           Integer.parseInt(parts[2])));
+                   services.add(new Service(parts[0], Double.parseDouble(parts[1])));
              }
 
         } catch (IOException e)
@@ -67,7 +62,7 @@ public class Service {
 
             for (Service s : services)
             {
-                pw.println(s.getName()+";"+s.getPrice()+";"+s.getDuration());
+                pw.println(s.getName()+";"+s.getPrice());
             }
 
         } catch (IOException e) {
@@ -77,6 +72,6 @@ public class Service {
 
     @Override
     public String toString() {
-        return name + ", " + price + " €, " + duration + " min";
+        return name + ", " + price + " €, ";
     }
 }

@@ -26,11 +26,11 @@
             <font>
                 <Font size="48.0" />
             </font></Button>
-        <Label layoutX="1055.0" layoutY="286.0" prefHeight="88.0" prefWidth="163.0" text="Name" textFill="WHITE">
+        <Label layoutX="1059.0" layoutY="393.0" prefHeight="88.0" prefWidth="163.0" text="Name" textFill="WHITE">
             <font>
                 <Font size="60.0" />
             </font></Label>
-        <TextField id="serviceName" fx:id="servicesName" layoutX="919.0" layoutY="399.0" prefHeight="56.0" prefWidth="420.0">
+        <TextField id="serviceName" fx:id="servicesName" layoutX="915.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font></TextField>
@@ -40,44 +40,33 @@
                 <Font size="64.0" />
             </font>
         </Label>
-      <Label layoutX="1551.0" layoutY="283.0" prefHeight="88.0" prefWidth="146.0" text="Price" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="1553.0" layoutY="393.0" prefHeight="88.0" prefWidth="146.0" text="Price" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Label>
-      <TextField id="serviceDuration" fx:id="servicesDuration" layoutX="1112.0" layoutY="603.0" prefHeight="56.0" prefWidth="420.0">
+      <TextField id="servicePrice" fx:id="servicesPrice" layoutX="1404.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0">
          <font>
             <Font size="26.0" />
          </font>
       </TextField>
-      <Label layoutX="1187.0" layoutY="509.0" prefHeight="88.0" prefWidth="269.0" text="Duration" textFill="WHITE">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Label>
-      <TextField id="servicePrice" fx:id="servicesPrice" layoutX="1408.0" layoutY="393.0" prefHeight="56.0" prefWidth="420.0">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </TextField>
-      <Button id="serviceUpdate" fx:id="servicesUpdate" layoutX="1263.0" layoutY="752.0" prefHeight="49.0" prefWidth="226.0" text="UPDATE" onAction="#updateService">
+      <Button id="serviceUpdate" fx:id="servicesUpdate" layoutX="1263.0" layoutY="573.0" onAction="#updateService" prefHeight="49.0" prefWidth="226.0" text="UPDATE">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button id="serviceDelete" fx:id="servicesDelete" layoutX="1523.0" layoutY="752.0" prefHeight="49.0" prefWidth="226.0" text="DELETE" onAction="#deleteService">
+      <Button id="serviceDelete" fx:id="servicesDelete" layoutX="1523.0" layoutY="573.0" onAction="#deleteService" prefHeight="49.0" prefWidth="226.0" text="DELETE">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button id="serviceAdd" fx:id="servicesAdd" layoutX="1012.0" layoutY="752.0" prefHeight="49.0" prefWidth="226.0" text="ADD" onAction="#addService">
+      <Button id="serviceAdd" fx:id="servicesAdd" layoutX="1012.0" layoutY="573.0" onAction="#addService" prefHeight="49.0" prefWidth="226.0" text="ADD">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
       <Label fx:id="errorFields" layoutX="945.0" layoutY="463.0" prefHeight="24.0" prefWidth="376.0" textFill="RED" />
       <Label fx:id="errorPrice" layoutX="1448.0" layoutY="451.0" prefHeight="24.0" prefWidth="376.0" textFill="RED" />
-      <Label fx:id="errorDuration" layoutX="1137.0" layoutY="659.0" prefHeight="24.0" prefWidth="376.0" textFill="RED" />
-      <ChoiceBox fx:id="servicesOrder" layoutX="378.0" layoutY="912.0" prefWidth="150.0" value="Order"/>
+      <ChoiceBox fx:id="servicesOrder" layoutX="378.0" layoutY="912.0" prefWidth="150.0" value="Order" />
     </children>
 </Pane>

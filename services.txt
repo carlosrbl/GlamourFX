@@ -1,5 +1,5 @@
-Corte de pelo;10.0;20
-Tinte y decoloracion;20.0;30
-Perfilado de barba;5.0;10
-Corte y perfilado;13.0;25
-Corte de pelo largo;18.0;25
+Corte de pelo;10.0
+Tinte y decoloracion;20.0
+Perfilado de barba;5.0
+Corte y perfilado;13.0
+Corte de pelo largo;18.0
