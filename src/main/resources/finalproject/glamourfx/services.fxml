@@ -30,7 +30,7 @@
             <font>
                 <Font size="60.0" />
             </font></Label>
-        <TextField id="serviceName" fx:id="servicesName" layoutX="915.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+        <TextField id="serviceName" fx:id="servicesName" layoutX="915.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
          <font>
             <Font size="26.0" />
          </font></TextField>
@@ -45,7 +45,7 @@
             <Font size="60.0" />
          </font>
       </Label>
-      <TextField id="servicePrice" fx:id="servicesPrice" layoutX="1404.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+      <TextField id="servicePrice" fx:id="servicesPrice" layoutX="1404.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
          <font>
             <Font size="26.0" />
          </font>
