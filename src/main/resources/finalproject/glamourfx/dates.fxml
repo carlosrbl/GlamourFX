@@ -16,16 +16,11 @@
             <Image url="@../img/dates.png" />
          </image>
       </ImageView>
-      <Button layoutX="1577.0" layoutY="31.0" onAction="#back" prefHeight="113.0" prefWidth="316.0" text="BACK">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Button>
-      <Button layoutX="1520.0" layoutY="873.0" onAction="#delete" prefHeight="85.0" prefWidth="206.0" text="DELETE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/back.png" />
+         </image>
+      </ImageView>
       <Label layoutX="1252.0" layoutY="249.0" prefHeight="42.0" prefWidth="168.0" text="Customer" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
@@ -67,5 +62,15 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
+      <Button layoutX="3.0" layoutY="1.0" onAction="#back" opacity="0.0" prefHeight="139.0" prefWidth="156.0" text="BACK">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button layoutX="1520.0" layoutY="873.0" onAction="#delete" prefHeight="85.0" prefWidth="206.0" text="DELETE">
+         <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
