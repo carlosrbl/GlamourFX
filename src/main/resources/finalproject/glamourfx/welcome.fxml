@@ -20,11 +20,11 @@
             <font>
                 <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
             </font></Label>
-        <Button layoutX="1498.0" layoutY="156.0" onAction="#checkUser" prefHeight="54.0" prefWidth="123.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Login" textFill="WHITE">
+        <Button fx:id="yourButton" layoutX="1498.0" layoutY="156.0" onAction="#checkUser" prefHeight="54.0" prefWidth="123.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Login" textFill="WHITE" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font></Button>
-        <Button layoutX="1494.0" layoutY="243.0" onAction="#loadRegisterInterface" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Register" textFill="WHITE">
+        <Button fx:id="yourButton2" layoutX="1494.0" layoutY="243.0" onAction="#loadRegisterInterface" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="Register" textFill="WHITE" onMouseEntered="#changeCursor2ToHand" onMouseExited="#changeCursor2ToDefault">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font></Button>

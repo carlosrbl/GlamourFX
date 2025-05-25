@@ -6,9 +6,11 @@ import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -35,9 +37,11 @@ public class Register
     @FXML
     private TextField txPhoneNumber;
     @FXML
-    private Label nameLabel;
+    private Label errorLabel;
     @FXML
-    private Label passwordLabel;
+    private Button yourButton;
+    @FXML
+    private Button yourButton2;
 
     public Register()
     {
@@ -89,10 +93,14 @@ public class Register
                         e.getMessage();
                     }
                 }
+                else
+                {
+                    Register.getInstance().setErrorName("¡No data introduced!");
+                }
             }
             else
             {
-                Register.getInstance().setErrorPassword("¡Passwords are different!");
+                Register.getInstance().setErrorName("¡Passwords are different!");
             }
         }
         else
@@ -182,16 +190,25 @@ public class Register
 
     public void setErrorName(String nombre)
     {
-        nameLabel.setText(nombre);
+        errorLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> nameLabel.setText(""));
+        delay.setOnFinished(e -> errorLabel.setText(""));
         delay.play();
     }
-    public void setErrorPassword(String nombre)
-    {
-        passwordLabel.setText(nombre);
-        PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> passwordLabel.setText(""));
-        delay.play();
+
+    public void changeCursorToHand() {
+        yourButton.setCursor(Cursor.HAND);
+    }
+
+    public void changeCursorToDefault() {
+        yourButton.setCursor(Cursor.DEFAULT);
+    }
+
+    public void changeCursor2ToHand() {
+        yourButton2.setCursor(Cursor.HAND);
+    }
+
+    public void changeCursor2ToDefault() {
+        yourButton2.setCursor(Cursor.DEFAULT);
     }
 }

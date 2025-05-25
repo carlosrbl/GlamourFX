@@ -7,13 +7,11 @@ import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -35,6 +33,10 @@ public class Check
     private PasswordField txPassword;
     @FXML
     private Label errorLabel;
+    @FXML
+    private Button yourButton;
+    @FXML
+    private Button yourButton2;
 
     public Check()
     {
@@ -204,5 +206,21 @@ public class Check
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(e -> errorLabel.setText(""));
         delay.play();
+    }
+
+    public void changeCursorToHand() {
+        yourButton.setCursor(Cursor.HAND);
+    }
+
+    public void changeCursorToDefault() {
+        yourButton.setCursor(Cursor.DEFAULT);
+    }
+
+    public void changeCursor2ToHand() {
+        yourButton2.setCursor(Cursor.HAND);
+    }
+
+    public void changeCursor2ToDefault() {
+        yourButton2.setCursor(Cursor.DEFAULT);
     }
 }
