@@ -16,7 +16,7 @@
             <Image url="@../img/customers.png" />
          </image>
       </ImageView>
-      <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" prefHeight="85.0" prefWidth="206.0" text="DELETE">
+      <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" text="DELETE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -31,7 +31,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1248.0" layoutY="685.0" onAction="#update" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
+      <Button layoutX="1248.0" layoutY="685.0" onAction="#update" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -56,7 +56,12 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1587.0" layoutY="41.0" onAction="#back" prefHeight="113.0" prefWidth="316.0" text="BACK">
+      <ImageView fitHeight="178.0" fitWidth="206.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/back.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="32.0" layoutY="34.0" onAction="#back" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" opacity="0.0" prefHeight="159.0" prefWidth="192.0" text="BACK">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

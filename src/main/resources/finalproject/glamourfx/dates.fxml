@@ -31,7 +31,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1223.0" layoutY="871.0" onAction="#update" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
+      <Button layoutX="1223.0" layoutY="871.0" onAction="#update" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -62,12 +62,12 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="3.0" layoutY="1.0" onAction="#back" opacity="0.0" prefHeight="139.0" prefWidth="156.0" text="BACK">
+      <Button layoutX="3.0" layoutY="1.0" onAction="#back" opacity="0.0" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="139.0" prefWidth="156.0" text="BACK">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <Button layoutX="1520.0" layoutY="873.0" onAction="#delete" prefHeight="85.0" prefWidth="206.0" text="DELETE">
+      <Button layoutX="1520.0" layoutY="873.0" onAction="#delete" prefHeight="85.0" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefWidth="206.0" text="DELETE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

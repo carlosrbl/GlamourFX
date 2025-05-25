@@ -8,11 +8,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -24,7 +27,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class DatesInterface implements Initializable {
+public class DatesInterface implements Initializable,ButtonCursor{
 
     @FXML
     private TextField PriceDate;
@@ -149,5 +152,15 @@ public class DatesInterface implements Initializable {
         {
             e.printStackTrace();
         }
+    }
+    @Override
+    public void changeCursorToHand(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.HAND);
+    }
+    @Override
+    public void changeCursorToDefault(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.DEFAULT);
     }
 }
