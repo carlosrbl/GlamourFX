@@ -1,6 +1,7 @@
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Hairdresser;
+import finalproject.glamourfx.data.Service;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -63,6 +65,9 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         loadHairdressers();
+        applyStyle();
+        setupMouseEvents();
+
         hairdressersList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             hairdresserName.setText(newValue.getName());
             hairdresserStars.setText(newValue.getStars()+"");
@@ -73,6 +78,47 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         hairdresserOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showOrderedBy(hairdresserOrder.getValue());
         });
+    }
+
+    public void applyStyle()
+    {
+        hairdressersList.setCellFactory(new Callback<ListView<Hairdresser>, ListCell<Hairdresser>>()
+        {
+            @Override
+            public ListCell<Hairdresser> call(ListView<Hairdresser> param)
+            {
+                return new ListCell<Hairdresser>()
+                {
+                    @Override
+                    protected void updateItem(Hairdresser item, boolean empty)
+                    {
+                        super.updateItem(item, empty);
+                        if (empty || item == null)
+                        {
+                            setText(null);
+                        }
+                        else
+                        {
+                            setText(item.toString());
+                        }
+                        setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                    }
+                };
+            }
+        });
+    }
+
+    private void setupMouseEvents() {
+        hairdressersList.setOnMouseClicked(this::CursorToHand);
+        hairdressersList.setOnMouseExited(this::CursorToDefault);
+    }
+
+    private void CursorToHand(MouseEvent event) {
+        hairdressersList.setCursor(Cursor.HAND);
+    }
+
+    private void CursorToDefault(MouseEvent event) {
+        hairdressersList.setCursor(Cursor.DEFAULT);
     }
 
     @FXML

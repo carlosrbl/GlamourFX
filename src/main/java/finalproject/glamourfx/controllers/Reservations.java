@@ -115,13 +115,36 @@ public class Reservations implements Initializable
     }
 
     @FXML
-    private void backToMainMenu(ActionEvent event) throws IOException
+    private void backToMainMenu(ActionEvent event)
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/customer.fxml"));
+            Parent root = loader.load();
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
+
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("GlamourFX");
+            stage.setScene(scene);
+
+            stage.setFullScreen(true);
+            stage.setFullScreenExitHint("");
+
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
+            stage.show();
+            rotate.play();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private double getServicePrice(String serviceName) {

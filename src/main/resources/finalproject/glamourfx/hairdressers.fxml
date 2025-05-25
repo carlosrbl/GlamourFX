@@ -34,7 +34,7 @@
          <font>
             <Font size="24.0" />
          </font></TextField>
-        <ListView fx:id="hairdressersList" layoutX="357.0" layoutY="389.0" prefHeight="546.0" prefWidth="499.0" />
+        <ListView fx:id="hairdressersList" layoutX="357.0" layoutY="389.0" prefHeight="546.0" prefWidth="499.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
         <Label layoutX="1253.0" layoutY="45.0" prefHeight="70.0" prefWidth="533.0" text="Hairdressers Data" textFill="WHITE">
             <font>
                 <Font size="64.0" />

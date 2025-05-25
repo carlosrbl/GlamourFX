@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import org.w3c.dom.Text;
 
@@ -64,6 +65,8 @@ public class ServicesInterface implements Initializable, ButtonCursor {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadServices();
+        applyStyle();
+        setupMouseEvents();
 
         servicesList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             servicesName.setText(newValue.getName());
@@ -75,6 +78,47 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         servicesOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             showOrderedBy(servicesOrder.getValue());
         });
+    }
+
+    public void applyStyle()
+    {
+        servicesList.setCellFactory(new Callback<ListView<Service>, ListCell<Service>>()
+        {
+            @Override
+            public ListCell<Service> call(ListView<Service> param)
+            {
+                return new ListCell<Service>()
+                {
+                    @Override
+                    protected void updateItem(Service item, boolean empty)
+                    {
+                        super.updateItem(item, empty);
+                        if (empty || item == null)
+                        {
+                            setText(null);
+                        }
+                        else
+                        {
+                            setText(item.toString());
+                        }
+                        setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                    }
+                };
+            }
+        });
+    }
+
+    private void setupMouseEvents() {
+        servicesList.setOnMouseClicked(this::CursorToHand);
+        servicesList.setOnMouseExited(this::CursorToDefault);
+    }
+
+    private void CursorToHand(MouseEvent event) {
+        servicesList.setCursor(Cursor.HAND);
+    }
+
+    private void CursorToDefault(MouseEvent event) {
+        servicesList.setCursor(Cursor.DEFAULT);
     }
 
     public void showOrderedBy(String order)
