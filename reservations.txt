@@ -1,5 +1,1 @@
-Manuel;Tinte + decoloracion;2025-05-01
-Marta;Perfilado de barba;2025-05-18
-Pedro;Perfilado de barba;2025-05-16
-Marta;Corte de pelo largo;2025-05-11
-Pepa;Corte y perfilado;2025-05-31
+a;b;2025-05-31;23.0;d

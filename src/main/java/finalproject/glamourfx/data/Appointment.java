@@ -1,30 +1,33 @@
 package finalproject.glamourfx.data;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
 public class Appointment {
-    private LocalDateTime time;
+    private LocalDate time;
     private String customer;
     private String hairdresser;
     private double totalPrice;
+    private String service;
 
-    public Appointment(LocalDateTime time, String customer,
-                       String hairdresser,double totalPrice) {
+    public Appointment(LocalDate time, String customer,
+                       String hairdresser, double totalPrice, String service) {
         this.time = time;
         this.customer = customer;
         this.hairdresser = hairdresser;
         this.totalPrice = totalPrice;
+        this.service = service;
     }
 
 
-    public LocalDateTime getTime() {
+    public LocalDate getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(LocalDate time) {
         this.time = time;
     }
 
@@ -52,9 +55,13 @@ public class Appointment {
         this.totalPrice = totalPrice;
     }
 
+    public String getService() {return service;}
+
+    public void setService(String service) {this.service = service;}
+
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        return " Fecha y hora: " + time.format(formatter) + ", " + customer + ", " + hairdresser + ", " + totalPrice + " €, ";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return "Service "+ service + ", date: " + time.format(formatter) + ", client: " + customer + ", hairdresser: " + hairdresser + ",total price: " + totalPrice + " €, ";
     }
 }
