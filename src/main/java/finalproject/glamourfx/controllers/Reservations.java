@@ -105,7 +105,7 @@ public class Reservations implements Initializable, ButtonCursor
             setErrorStars("Por favor, completa todos los campos.");
             return;
         }
-        String reservationData = hairdresser + ";" + service + ";" + datePicker2.toString()+";"+totalLabel.getText().replace(" €","").replace(",",".") + ";" + SessionManager.getCurrentCustomer().getName();
+        String reservationData = hairdresser + ";" + service + ";" + datePicker2.toString() + ";" + totalLabel.getText().replace(" €","").replace(",",".") + ";" + SessionManager.getCurrentCustomer().getName();
 
         try (PrintWriter pw = new PrintWriter(new FileWriter("reservations.txt",true))) {
             pw.println(reservationData);

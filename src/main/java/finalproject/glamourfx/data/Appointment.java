@@ -1,8 +1,14 @@
 package finalproject.glamourfx.data;
 
+import finalproject.glamourfx.controllers.SessionManager;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,7 +67,29 @@ public class Appointment {
 
     @Override
     public String toString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        return "Service "+ service + ", date: " + time.format(formatter) + ", client: " + customer + ", hairdresser: " + hairdresser + ",total price: " + totalPrice + " €, ";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return hairdresser + ", " + service + ", " + time.format(formatter) + ", " + totalPrice + " €";
+    }
+
+    public static List<Appointment> getAppointments() {
+        List<Appointment> appointments = new ArrayList<>();
+        try (BufferedReader bf = new BufferedReader(new FileReader("reservations.txt")))
+        {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String line = null;
+            while ((line = bf.readLine()) != null)
+            {
+                String[] parts = line.split(";");
+                if (parts[4].equalsIgnoreCase(SessionManager.getCurrentCustomer().getName()))
+                {
+                    appointments.add(new Appointment(LocalDate.parse(parts[2], formatter), parts[4], parts[0], Double.parseDouble(parts[3]), parts[1]));
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return appointments;
     }
 }
