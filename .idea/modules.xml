@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GlamourFX.iml" filepath="$PROJECT_DIR$/GlamourFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GlamourFX.iml" filepath="$PROJECT_DIR$/.idea/GlamourFX.iml" />
     </modules>
   </component>
 </project>
