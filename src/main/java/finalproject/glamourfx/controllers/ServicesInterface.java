@@ -277,12 +277,13 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         delay.setOnFinished(e -> errorFields.setText(""));
         delay.play();
     }
-
+    @Override
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
 
+    @Override
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.DEFAULT);

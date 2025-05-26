@@ -50,17 +50,17 @@
             <Font size="26.0" />
          </font>
       </TextField>
-      <Button id="serviceUpdate" fx:id="servicesUpdate" layoutX="1263.0" layoutY="573.0" onAction="#updateService" prefHeight="49.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="UPDATE" textFill="WHITE">
+      <Button id="serviceUpdate" fx:id="servicesUpdate" layoutX="1263.0" layoutY="573.0" onAction="#updateService" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="49.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="UPDATE" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button id="serviceDelete" fx:id="servicesDelete" layoutX="1523.0" layoutY="573.0" onAction="#deleteService" prefHeight="49.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="DELETE" textFill="WHITE">
+      <Button id="serviceDelete" fx:id="servicesDelete" layoutX="1523.0" layoutY="573.0" onAction="#deleteService" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="49.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="DELETE" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button id="serviceAdd" fx:id="servicesAdd" layoutX="1012.0" layoutY="573.0" onAction="#addService" prefHeight="49.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="ADD" textFill="WHITE">
+      <Button id="serviceAdd" fx:id="servicesAdd" layoutX="1012.0" layoutY="573.0" onAction="#addService" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault" prefHeight="49.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="ADD" textFill="WHITE">
          <font>
             <Font size="36.0" />
          </font>

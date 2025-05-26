@@ -7,10 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class Reservations implements Initializable
+public class Reservations implements Initializable, ButtonCursor
 {
     private static Reservations instance;
 
@@ -103,15 +105,16 @@ public class Reservations implements Initializable
             setErrorStars("Por favor, completa todos los campos.");
             return;
         }
-        String reservationData = hairdresser + ";" + service + ";" + datePicker2.toString();
+        String reservationData =SessionManager.getCurrentCustomer().getName() + ";" + hairdresser + ";" + service + ";" + datePicker2.toString()+ totalLabel.getText().replace(" €","");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("reservations.txt", true))) {
-            writer.write(reservationData);
-            writer.newLine();
-            setConfirmStars("Reserva guardada: " + reservationData);
+        try (PrintWriter pw = new PrintWriter(new FileWriter("reservations.txt",true))) {
+            pw.println(reservationData);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        setConfirmStars("Reserva guardada: " + reservationData);
+        selectHairdresser.setValue("");
+        selectService.setValue("");
     }
 
     @FXML
@@ -226,4 +229,18 @@ public class Reservations implements Initializable
         selectService.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> updateTotalPrice());
         selectHairdresser.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> updateTotalPrice());
     }
+
+    @Override
+    public void changeCursorToHand(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.HAND);
+    }
+    @Override
+    public void changeCursorToDefault(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setCursor(Cursor.DEFAULT);
+    }
+
+
+
 }

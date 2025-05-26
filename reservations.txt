@@ -1,2 +1,3 @@
-a;b;2025-05-31;23.0;d
-j;k;2024-06-12;25.0;patata
+a;Manuel;Tinte y decoloracion;2025-04-3022,80
+a;Pedro;Perfilado de barba;2025-04-065,50
+a;Pepa;Corte y perfilado;2025-06-1016,70
