@@ -1,8 +1,3 @@
-/**
- * @author Nehuén
- * This class contains the reservation interface controller
- */
-
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;
@@ -213,7 +208,7 @@ public class Reservations implements Initializable, ButtonCursor
     }
     public void setConfirmStars(String nombre)
     {
-       confirmLabel.setText(nombre);
+        confirmLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(e -> confirmLabel.setText(""));
         delay.play();
@@ -245,7 +240,5 @@ public class Reservations implements Initializable, ButtonCursor
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.DEFAULT);
     }
-
-
 
 }
