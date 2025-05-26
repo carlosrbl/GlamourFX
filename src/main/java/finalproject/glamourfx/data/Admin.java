@@ -1,3 +1,11 @@
+/**
+ * @author Carlos
+ * @author Adrián
+ * @author Miguel
+ * @author Nehuén
+ * This class contains the data of the Admin
+ */
+
 package finalproject.glamourfx.data;
 
 public class Admin extends User

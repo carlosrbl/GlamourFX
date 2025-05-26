@@ -8,41 +8,44 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.CustomerInterface">
-    <children>
-        <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
-            <image>
-                <Image url="@../img/interface.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="51.0" fitWidth="69.0" layoutX="1730.0" layoutY="251.0" preserveRatio="false">
-            <image>
-                <Image url="@../img/logOut.png" />
-            </image>
-        </ImageView>
-        <Button layoutX="447.0" layoutY="581.0" onAction="#loadReservationInterface" prefHeight="159.0" prefWidth="548.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment" textAlignment="CENTER" textFill="black" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault">
-            <font>
-                <Font name="Tw Cen MT Condensed Extra Bold" size="40.0" />
-            </font></Button>
-        <Label fx:id="helloLabel" layoutX="1252.0" layoutY="203.0" prefHeight="143.0" prefWidth="464.0" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="50.0" />
-         </font></Label>
-      <Button layoutX="448.0" layoutY="770.0" onAction="#loadCustomerAppointmentsInterface" prefHeight="139.0" prefWidth="547.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" text="See my appointments" textAlignment="CENTER" textFill="black" onMouseEntered="#changeCursorToHand" onMouseDragExited="#changeCursorToDefault">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="40.0" />
-         </font>
-      </Button>
-      <Circle fill="white" layoutX="1137.0" layoutY="276.0" radius="55.0" stroke="transparent" strokeType="INSIDE" />
-      <ImageView fitHeight="107.0" fitWidth="92.0" layoutX="1091.0" layoutY="223.0" preserveRatio="false">
-         <image>
-            <Image url="@../img/user.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="1727.0" layoutY="238.0" onAction="#logOut" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="76.0" prefWidth="75.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="35.0" />
-         </font>
-      </Button>
-    </children>
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="finalproject.glamourfx.controllers.CustomerInterface">
+    <ImageView fitHeight="1080.0" fitWidth="1920.0">
+        <Image url="@../img/interface.png"/>
+    </ImageView>
+    <ImageView fitHeight="51.0" fitWidth="69.0" layoutX="1730.0" layoutY="251.0">
+        <Image url="@../img/logOut.png"/>
+    </ImageView>
+    <Button layoutX="447.0" layoutY="581.0" onAction="#loadReservationInterface" prefHeight="159.0" prefWidth="548.0"
+            style="-fx-background-color: transparent; -fx-border-color: transparent;" text="Make an appointment"
+            textAlignment="CENTER" textFill="black" onMouseEntered="#changeCursorToHand"
+            onMouseDragExited="#changeCursorToDefault">
+        <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="40.0"/>
+        </font>
+    </Button>
+    <Label fx:id="helloLabel" layoutX="1252.0" layoutY="203.0" prefHeight="143.0" prefWidth="464.0" textFill="WHITE">
+        <font>
+        <Font name="Tw Cen MT Condensed Extra Bold" size="50.0"/>
+        </font>
+    </Label>
+    <Button layoutX="448.0" layoutY="770.0" onAction="#loadCustomerAppointmentsInterface" prefHeight="139.0"
+            prefWidth="547.0" style="-fx-background-color: transparent; -fx-border-color: transparent;"
+            text="See my appointments" textAlignment="CENTER" textFill="black" onMouseEntered="#changeCursorToHand"
+            onMouseDragExited="#changeCursorToDefault">
+        <font>
+          <Font name="Tw Cen MT Condensed Extra Bold" size="40.0"/>
+        </font>
+    </Button>
+    <Circle fill="white" layoutX="1137.0" layoutY="276.0" radius="55.0" stroke="transparent" strokeType="INSIDE"/>
+    <ImageView fitHeight="107.0" fitWidth="92.0" layoutX="1091.0" layoutY="223.0">
+        <Image url="@../img/user.png"/>
+    </ImageView>
+    <Button layoutX="1727.0" layoutY="238.0" onAction="#logOut" onMouseEntered="#changeCursorToHand"
+            onMouseExited="#changeCursorToDefault" prefHeight="76.0" prefWidth="75.0"
+            style="-fx-background-color: transparent; -fx-border-color: transparent;">
+        <font>
+          <Font name="Tw Cen MT Condensed Extra Bold" size="35.0"/>
+        </font>
+    </Button>
 </Pane>

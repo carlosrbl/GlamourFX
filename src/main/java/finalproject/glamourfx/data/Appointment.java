@@ -1,3 +1,11 @@
+/**
+ * @author Carlos
+ * @author Adrián
+ * @author Miguel
+ * @author Nehuén
+ * This class contains the data of the appointments
+ */
+
 package finalproject.glamourfx.data;
 
 import finalproject.glamourfx.controllers.SessionManager;

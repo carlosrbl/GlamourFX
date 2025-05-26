@@ -1,3 +1,11 @@
+/**
+ * @author Carlos
+ * @author Adrián
+ * @author Miguel
+ * @author Nehuén
+ * This class contains the customer data
+ */
+
 package finalproject.glamourfx.data;
 
 public class Customer extends User {

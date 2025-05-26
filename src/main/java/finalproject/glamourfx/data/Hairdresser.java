@@ -1,3 +1,11 @@
+/**
+ * @author Carlos
+ * @author Adrián
+ * @author Miguel
+ * @author Nehuén
+ * This class contains the data of the hairdressers
+ */
+
 package finalproject.glamourfx.data;
 
 import java.io.*;

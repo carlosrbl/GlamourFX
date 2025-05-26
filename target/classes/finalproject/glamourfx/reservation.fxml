@@ -1,65 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.Reservations">
-   <children>
-      <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
-         <image>
-            <Image url="@../img/Reservations.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="1149.0" layoutY="365.0" prefHeight="71.0" prefWidth="330.0" text="Select a hairdresser">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <ChoiceBox fx:id="selectHairdresser" layoutX="1476.0" layoutY="391.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="selectService" layoutX="1476.0" layoutY="464.0" prefWidth="150.0" />
-      <Label layoutX="1149.0" layoutY="438.0" prefHeight="71.0" prefWidth="330.0" text="Select service">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Label layoutX="1149.0" layoutY="514.0" prefHeight="71.0" prefWidth="330.0" text="Select date">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="datePicker" layoutX="1452.0" layoutY="539.0" />
-      <Label layoutX="1178.0" layoutY="604.0" text="Total:">
-         <font>
-            <Font size="64.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="66.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0" preserveRatio="false">
-         <image>
-            <Image url="@../img/back.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="backButton" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#backToMainMenu" opacity="0.0" prefHeight="74.0" prefWidth="100.0" text="back" />
-      <Button fx:id="cancelButton" cancelButton="true" layoutX="1220.0" layoutY="743.0" mnemonicParsing="false" onAction="#cancelReservation" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #FF0000;" text="Cancel" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="confirmButton" layoutX="1402.0" layoutY="742.0" mnemonicParsing="false" onAction="#confirmReservation" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #4CAF50;" text="Confirm" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Label fx:id="cancelLabel" layoutX="1225.0" layoutY="717.0" prefHeight="17.0" prefWidth="339.0" textFill="RED" />
-      <Label fx:id="confirmLabel" layoutX="1220.0" layoutY="717.0" prefHeight="17.0" prefWidth="342.0" textFill="#3df500" />
-      <Label fx:id="errorLabel" layoutX="1222.0" layoutY="719.0" prefHeight="17.0" prefWidth="216.0" textFill="RED" />
-      <Label fx:id="totalLabel" layoutX="1361.0" layoutY="604.0" prefHeight="91.0" prefWidth="288.0">
-         <font>
-            <Font name="Comic Sans MS" size="64.0" />
-         </font>
-      </Label>
-   </children>
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="finalproject.glamourfx.controllers.Reservations">
+   <ImageView fitHeight="1080.0" fitWidth="1920.0">
+      <Image url="@../img/reservations.png"/>
+   </ImageView>
+   <Label layoutX="1149.0" layoutY="365.0" prefHeight="71.0" prefWidth="330.0" text="Select a hairdresser">
+      <font>
+         <Font size="36.0"/>
+      </font>
+   </Label>
+   <ChoiceBox fx:id="selectHairdresser" layoutX="1476.0" layoutY="391.0" prefWidth="150.0"/>
+   <ChoiceBox fx:id="selectService" layoutX="1476.0" layoutY="464.0" prefWidth="150.0"/>
+   <Label layoutX="1149.0" layoutY="438.0" prefHeight="71.0" prefWidth="330.0" text="Select service">
+      <font>
+         <Font size="36.0"/>
+      </font>
+   </Label>
+   <Label layoutX="1149.0" layoutY="514.0" prefHeight="71.0" prefWidth="330.0" text="Select date">
+      <font>
+         <Font size="36.0"/>
+      </font>
+   </Label>
+   <DatePicker fx:id="datePicker" layoutX="1452.0" layoutY="539.0"/>
+   <Label layoutX="1178.0" layoutY="604.0" text="Total:">
+      <font>
+         <Font size="64.0"/>
+      </font>
+   </Label>
+   <ImageView fitHeight="66.0" fitWidth="98.0" layoutX="10.0" layoutY="10.0">
+      <Image url="@../img/back.png"/>
+   </ImageView>
+   <Button fx:id="backButton" layoutX="8.0" layoutY="3.0" mnemonicParsing="false" onAction="#backToMainMenu"
+           opacity="0.0" prefHeight="74.0" prefWidth="100.0" text="back"/>
+   <Button fx:id="cancelButton" cancelButton="true" layoutX="1220.0" layoutY="743.0" mnemonicParsing="false"
+           onAction="#cancelReservation" prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #FF0000;"
+           text="Cancel" textFill="WHITE">
+      <font>
+         <Font size="24.0"/>
+      </font>
+   </Button>
+   <Button fx:id="confirmButton" layoutX="1402.0" layoutY="742.0" mnemonicParsing="false" onAction="#confirmReservation"
+           prefHeight="46.0" prefWidth="165.0" style="-fx-background-color: #4CAF50;" text="Confirm" textFill="WHITE">
+      <font>
+         <Font size="24.0"/>
+      </font>
+   </Button>
+   <Label fx:id="cancelLabel" layoutX="1225.0" layoutY="717.0" prefHeight="17.0" prefWidth="339.0" textFill="RED"/>
+   <Label fx:id="confirmLabel" layoutX="1220.0" layoutY="717.0" prefHeight="17.0" prefWidth="342.0" textFill="#3df500"/>
+   <Label fx:id="errorLabel" layoutX="1222.0" layoutY="719.0" prefHeight="17.0" prefWidth="216.0" textFill="RED"/>
+   <Label fx:id="totalLabel" layoutX="1361.0" layoutY="604.0" prefHeight="91.0" prefWidth="288.0">
+      <font>
+         <Font name="Comic Sans MS" size="64.0"/>
+      </font>
+   </Label>
 </Pane>

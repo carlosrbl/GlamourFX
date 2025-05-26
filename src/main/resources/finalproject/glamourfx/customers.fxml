@@ -9,62 +9,72 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1460.0" prefWidth="2220.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.CustomersInterface">
-   <children>
-      <ImageView fitHeight="1491.0" fitWidth="2237.0" layoutX="-44.0" layoutY="-12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/customers.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="DELETE" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Button>
-      <Label layoutX="1262.0" layoutY="259.0" prefHeight="42.0" prefWidth="168.0" text="Password" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
-         </font>
-      </Label>
-      <Label layoutX="1257.0" layoutY="388.0" prefHeight="42.0" prefWidth="275.0" text="Email" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
-         </font>
-      </Label>
-      <Button layoutX="1248.0" layoutY="685.0" onAction="#update" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="UPDATE" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Button>
-      <ListView fx:id="CustomersList" layoutX="359.0" layoutY="146.0" prefHeight="837.0" prefWidth="729.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
-      <Label layoutX="1254.0" layoutY="511.0" prefHeight="42.0" prefWidth="275.0" text="Phone number" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
-         </font>
-      </Label>
-      <Label layoutX="367.0" layoutY="69.0" prefHeight="71.0" prefWidth="430.0" text="Customers info" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="65.0" />
-         </font>
-      </Label>
-      <TextField fx:id="CustomerPhoneNumber" layoutX="1231.0" layoutY="575.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
-      <TextField fx:id="CustomerEmail" layoutX="1234.0" layoutY="452.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
-      <TextField fx:id="CustomerPassword" layoutX="1232.0" layoutY="328.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
-      <TextField fx:id="CustomerName" layoutX="1231.0" layoutY="206.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
-      <Label layoutX="1267.0" layoutY="130.0" prefHeight="42.0" prefWidth="168.0" text="Name" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="178.0" fitWidth="206.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/back.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="32.0" layoutY="34.0" onAction="#back" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" opacity="0.0" prefHeight="159.0" prefWidth="192.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="BACK">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Button>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1460.0"
+      prefWidth="2220.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="finalproject.glamourfx.controllers.CustomersInterface">
+   <ImageView fitHeight="1491.0" fitWidth="2237.0" layoutX="-44.0" layoutY="-12.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@../img/customers.png"/>
+   </ImageView>
+   <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" onMouseEntered="#changeCursorToHand"
+           onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0"
+           style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="DELETE"
+           textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+      </font>
+   </Button>
+   <Label layoutX="1262.0" layoutY="259.0" prefHeight="42.0" prefWidth="168.0" text="Password" textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="45.0"/>
+      </font>
+   </Label>
+   <Label layoutX="1257.0" layoutY="388.0" prefHeight="42.0" prefWidth="275.0" text="Email" textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="45.0"/>
+      </font>
+   </Label>
+   <Button layoutX="1248.0" layoutY="685.0" onAction="#update" onMouseEntered="#changeCursorToHand"
+           onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0"
+           style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="UPDATE"
+           textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+      </font>
+   </Button>
+   <ListView fx:id="CustomersList" layoutX="359.0" layoutY="146.0" prefHeight="837.0" prefWidth="729.0"
+             style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
+   <Label layoutX="1254.0" layoutY="511.0" prefHeight="42.0" prefWidth="275.0" text="Phone number" textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="45.0"/>
+      </font>
+   </Label>
+   <Label layoutX="367.0" layoutY="69.0" prefHeight="71.0" prefWidth="430.0" text="Customers info" textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="65.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="CustomerPhoneNumber" layoutX="1231.0" layoutY="575.0" prefHeight="53.0" prefWidth="508.0"
+              style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
+   <TextField fx:id="CustomerEmail" layoutX="1234.0" layoutY="452.0" prefHeight="53.0" prefWidth="508.0"
+              style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
+   <TextField fx:id="CustomerPassword" layoutX="1232.0" layoutY="328.0" prefHeight="53.0" prefWidth="508.0"
+              style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
+   <TextField fx:id="CustomerName" layoutX="1231.0" layoutY="206.0" prefHeight="53.0" prefWidth="508.0"
+              style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
+   <Label layoutX="1267.0" layoutY="130.0" prefHeight="42.0" prefWidth="168.0" text="Name" textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="45.0"/>
+      </font>
+   </Label>
+   <ImageView fitHeight="178.0" fitWidth="206.0" layoutX="34.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../img/back.png"/>
+   </ImageView>
+   <Button layoutX="32.0" layoutY="34.0" onAction="#back" onMouseEntered="#changeCursorToHand"
+           onMouseExited="#changeCursorToDefault" opacity="0.0" prefHeight="159.0" prefWidth="192.0"
+           style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="BACK">
+      <font>
+         <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+      </font>
+   </Button>
 </Pane>

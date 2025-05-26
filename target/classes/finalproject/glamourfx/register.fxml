@@ -9,103 +9,116 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalproject.glamourfx.controllers.Register">
-    <children>
-        <ImageView fitHeight="1080.0" fitWidth="1920.0" preserveRatio="false">
-            <image>
-                <Image url="@../img/register.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="54.0" fitWidth="83.0" layoutX="1729.0" layoutY="238.0" preserveRatio="false">
-            <image>
-                <Image url="@../img/addUser.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="54.0" fitWidth="50.0" layoutX="1743.0" layoutY="317.0" preserveRatio="false">
-            <image>
-                <Image url="@../img/back.png" />
-            </image>
-        </ImageView>
-        <Button layoutX="1743.0" layoutY="316.0" onAction="#cancel" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
-            <font>
-                <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-            </font></Button>
-        <Button layoutX="1729.0" layoutY="237.0" onAction="#addUser" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="83.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
-            <font>
-                <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-            </font></Button>
-        <Label layoutX="1253.0" layoutY="45.0" prefHeight="42.0" prefWidth="90.0" text="NAME" textFill="WHITE">
-            <font>
-                <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-            </font></Label>
-        <TextField fx:id="txName" layoutX="1253.0" layoutY="88.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
-         <font>
-            <Font name="Tw Cen MT Condensed" size="20.0" />
-         </font></TextField>
-        <Label layoutX="1253.0" layoutY="145.0" prefHeight="42.0" prefWidth="168.0" text="PASSWORD" textFill="WHITE">
-            <font>
-                <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-            </font></Label>
-        <PasswordField fx:id="txPassword" layoutX="1253.0" layoutY="189.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
-         <font>
-            <Font name="Tw Cen MT Condensed" size="20.0" />
-         </font></PasswordField>
-      <Label layoutX="1251.0" layoutY="445.0" prefHeight="42.0" prefWidth="212.0" text="PHONE NUMBER" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1251.0" layoutY="344.0" prefHeight="42.0" prefWidth="168.0" text="EMAIL" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1253.0" layoutY="247.0" prefHeight="42.0" prefWidth="275.0" text="CONFIRM PASSWORD" textFill="WHITE">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
-         </font>
-      </Label>
-        <PasswordField fx:id="txPassword2" layoutX="1251.0" layoutY="293.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
-         <font>
-            <Font name="Tw Cen MT Condensed" size="20.0" />
-         </font></PasswordField>
-      <TextField fx:id="txEmail" layoutX="1251.0" layoutY="393.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
-         <font>
-            <Font name="Tw Cen MT Condensed" size="20.0" />
-         </font></TextField>
-      <TextField fx:id="txPhoneNumber" layoutX="1251.0" layoutY="489.0" prefHeight="25.0" prefWidth="314.0" style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
-         <font>
-            <Font name="Tw Cen MT Condensed" size="20.0" />
-         </font></TextField>
-      <Label layoutX="1327.0" layoutY="37.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1442.0" layoutY="439.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1325.0" layoutY="339.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1499.0" layoutY="242.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="1385.0" layoutY="138.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Label fx:id="errorLabel" layoutX="1686.0" layoutY="418.0" prefHeight="54.0" prefWidth="252.0" textAlignment="CENTER" textFill="RED">
-         <font>
-            <Font name="Tw Cen MT Condensed Extra Bold" size="20.0" />
-         </font>
-      </Label>
-    </children>
+<Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="finalproject.glamourfx.controllers.Register">
+    <ImageView fitHeight="1080.0" fitWidth="1920.0">
+        <Image url="@../img/register.png"/>
+    </ImageView>
+    <ImageView fitHeight="54.0" fitWidth="83.0" layoutX="1729.0" layoutY="238.0">
+        <Image url="@../img/addUser.png"/>
+    </ImageView>
+    <ImageView fitHeight="54.0" fitWidth="50.0" layoutX="1743.0" layoutY="317.0">
+        <Image url="@../img/back.png"/>
+    </ImageView>
+    <Button layoutX="1743.0" layoutY="316.0" onAction="#cancel" onMouseEntered="#changeCursorToHand"
+            onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="50.0"
+            style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
+        <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Button>
+    <Button layoutX="1729.0" layoutY="237.0" onAction="#addUser" onMouseEntered="#changeCursorToHand"
+            onMouseExited="#changeCursorToDefault" prefHeight="56.0" prefWidth="83.0"
+            style="-fx-background-color: transparent; -fx-border-color: transparent;" textAlignment="CENTER">
+        <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Button>
+    <Label layoutX="1253.0" layoutY="45.0" prefHeight="42.0" prefWidth="90.0" text="NAME" textFill="WHITE">
+        <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="txName" layoutX="1253.0" layoutY="88.0" prefHeight="25.0" prefWidth="314.0"
+               style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+        <font>
+        <Font name="Tw Cen MT Condensed" size="20.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="1253.0" layoutY="145.0" prefHeight="42.0" prefWidth="168.0" text="PASSWORD" textFill="WHITE">
+        <font>
+            <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Label>
+    <PasswordField fx:id="txPassword" layoutX="1253.0" layoutY="189.0" prefHeight="25.0" prefWidth="314.0"
+                   style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+        <font>
+        <Font name="Tw Cen MT Condensed" size="20.0"/>
+        </font>
+    </PasswordField>
+    <Label layoutX="1251.0" layoutY="445.0" prefHeight="42.0" prefWidth="212.0" text="PHONE NUMBER" textFill="WHITE">
+        <font>
+          <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1251.0" layoutY="344.0" prefHeight="42.0" prefWidth="168.0" text="EMAIL" textFill="WHITE">
+        <font>
+          <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1253.0" layoutY="247.0" prefHeight="42.0" prefWidth="275.0" text="CONFIRM PASSWORD"
+           textFill="WHITE">
+        <font>
+          <Font name="Tw Cen MT Condensed Extra Bold" size="30.0"/>
+        </font>
+    </Label>
+    <PasswordField fx:id="txPassword2" layoutX="1251.0" layoutY="293.0" prefHeight="25.0" prefWidth="314.0"
+                   style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+        <font>
+        <Font name="Tw Cen MT Condensed" size="20.0"/>
+        </font>
+    </PasswordField>
+    <TextField fx:id="txEmail" layoutX="1251.0" layoutY="393.0" prefHeight="25.0" prefWidth="314.0"
+               style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+        <font>
+          <Font name="Tw Cen MT Condensed" size="20.0"/>
+        </font>
+    </TextField>
+    <TextField fx:id="txPhoneNumber" layoutX="1251.0" layoutY="489.0" prefHeight="25.0" prefWidth="314.0"
+               style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
+        <font>
+          <Font name="Tw Cen MT Condensed" size="20.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="1327.0" layoutY="37.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+        <font>
+          <Font size="30.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1442.0" layoutY="439.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+        <font>
+          <Font size="30.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1325.0" layoutY="339.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+        <font>
+          <Font size="30.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1499.0" layoutY="242.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+        <font>
+          <Font size="30.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1385.0" layoutY="138.0" prefHeight="41.0" prefWidth="47.0" text="*" textFill="RED">
+        <font>
+          <Font size="30.0"/>
+        </font>
+    </Label>
+    <Label fx:id="errorLabel" layoutX="1686.0" layoutY="418.0" prefHeight="54.0" prefWidth="252.0"
+           textAlignment="CENTER" textFill="RED">
+        <font>
+          <Font name="Tw Cen MT Condensed Extra Bold" size="20.0"/>
+        </font>
+    </Label>
 </Pane>

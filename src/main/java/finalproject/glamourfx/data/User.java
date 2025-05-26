@@ -1,3 +1,11 @@
+/**
+ * @author Carlos
+ * @author Adrián
+ * @author Miguel
+ * @author Nehuén
+ * This class contains the user data
+ */
+
 package finalproject.glamourfx.data;
 
 public abstract class User extends Person {
