@@ -7,7 +7,6 @@ package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;
 import javafx.animation.RotateTransition;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,7 +19,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
@@ -50,7 +48,7 @@ public class CustomersInterface implements Initializable,ButtonCursor {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ShowInfo();
-        CustomersList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        CustomersList.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
             CustomerName.setText(newValue.getName());
             CustomerPassword.setText(newValue.getPassword());
             CustomerEmail.setText(newValue.getEmail());
@@ -61,8 +59,8 @@ public class CustomersInterface implements Initializable,ButtonCursor {
     public ArrayList<Customer> Reader()
     {
         String [] datos;
-        customers = new ArrayList<Customer>();
-        String linea="";
+        customers = new ArrayList<>();
+        String linea;
         try(BufferedReader bf = new BufferedReader(new FileReader("customers.txt")))
         {
 
@@ -86,7 +84,7 @@ public class CustomersInterface implements Initializable,ButtonCursor {
         CustomersList.setItems(datosObservables);
     }
 
-    public void update(ActionEvent actionEvent)
+    public void update()
     {
 
         CustomersList.getSelectionModel().getSelectedItem().setName(CustomerName.getText());
@@ -109,7 +107,7 @@ public class CustomersInterface implements Initializable,ButtonCursor {
             System.out.println(e.getMessage());
         }
     }
-    public void delete(ActionEvent actionEvent)
+    public void delete()
     {
         try( PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("customers.txt"))))
         {
@@ -157,7 +155,7 @@ public class CustomersInterface implements Initializable,ButtonCursor {
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
     @Override

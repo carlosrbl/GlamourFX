@@ -6,7 +6,6 @@
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Hairdresser;
-import finalproject.glamourfx.data.Service;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
 import javafx.collections.FXCollections;
@@ -27,8 +26,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -47,18 +46,6 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
     @FXML
     private ListView<Hairdresser> hairdressersList;
 
-     @FXML
-     private Button hairdressersBack;
-
-    @FXML
-    private Button hairdressersUpdate;
-
-    @FXML
-    private Button hairdressersAdd;
-
-    @FXML
-    private Button hairdressersDelete;
-
     @FXML
     private ChoiceBox<String> hairdresserOrder;
 
@@ -75,26 +62,24 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         applyStyle();
         setupMouseEvents();
 
-        hairdressersList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        hairdressersList.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
             hairdresserName.setText(newValue.getName());
             hairdresserStars.setText(newValue.getStars()+"");
         });
 
         String[] orders = {"Name", "Stars", "Name (inverted)", "Stars (inverted)"};
         hairdresserOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
-        hairdresserOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            showOrderedBy(hairdresserOrder.getValue());
-        });
+        hairdresserOrder.getSelectionModel().selectedItemProperty().addListener((_, _, _) -> showOrderedBy(hairdresserOrder.getValue()));
     }
 
     public void applyStyle()
     {
-        hairdressersList.setCellFactory(new Callback<ListView<Hairdresser>, ListCell<Hairdresser>>()
+        hairdressersList.setCellFactory(new Callback<>()
         {
             @Override
             public ListCell<Hairdresser> call(ListView<Hairdresser> param)
             {
-                return new ListCell<Hairdresser>()
+                return new ListCell<>()
                 {
                     @Override
                     protected void updateItem(Hairdresser item, boolean empty)
@@ -160,7 +145,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -169,10 +154,10 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         switch (order)
         {
             case "Name":
-                hairdressers.sort((h1, h2) -> h1.getName().toLowerCase().compareTo(h2.getName().toLowerCase()));
+                hairdressers.sort(Comparator.comparing(h -> h.getName().toLowerCase()));
                 break;
             case "Stars":
-                hairdressers.sort((h1, h2) -> Integer.compare(h1.getStars(), h2.getStars()));
+                hairdressers.sort(Comparator.comparingInt(Hairdresser::getStars));
                 break;
             case "Name (inverted)":
                 hairdressers.sort((h1, h2) -> h2.getName().toLowerCase().compareTo(h1.getName().toLowerCase()));
@@ -189,7 +174,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         return !hairdresserName.getText().isEmpty() && !hairdresserStars.getText().trim().isEmpty();
     }
 
-    public void addHairdresser(ActionEvent actionEvent) {
+    public void addHairdresser() {
         if (emptyField()) {
             if (isValidNumber(hairdresserStars.getText()))
             {
@@ -223,7 +208,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         }
     }
 
-    public void updateHairdresser(ActionEvent actionEvent)
+    public void updateHairdresser()
     {
         if (emptyField()) {
 
@@ -254,7 +239,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
 
     }
 
-    public void deleteHairdresser (ActionEvent actionEvent)
+    public void deleteHairdresser ()
     {
         if (hairdressers.contains(hairdressersList.getSelectionModel().getSelectedItem()))
         {
@@ -285,7 +270,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
     {
         errorLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorLabel.setText(""));
+        delay.setOnFinished(_ -> errorLabel.setText(""));
         delay.play();
     }
 
@@ -293,7 +278,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
     {
         errorLabelFields.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorLabelFields.setText(""));
+        delay.setOnFinished(_ -> errorLabelFields.setText(""));
         delay.play();
     }
     @Override

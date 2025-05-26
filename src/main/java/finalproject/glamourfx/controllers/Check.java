@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -85,7 +84,7 @@ public class Check implements ButtonCursor
             }
             catch (IOException e)
             {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         else
@@ -124,7 +123,7 @@ public class Check implements ButtonCursor
                 }
                 catch (IOException e)
                 {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
             else
@@ -142,7 +141,7 @@ public class Check implements ButtonCursor
     private List<Customer> getCustomers()
     {
         List<Customer> customers = new ArrayList<>();
-        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File("customers.txt"))))
+        try (BufferedReader inputFile = new BufferedReader(new FileReader("customers.txt")))
         {
             String line;
             while ((line = inputFile.readLine()) != null)
@@ -212,7 +211,7 @@ public class Check implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -220,7 +219,7 @@ public class Check implements ButtonCursor
     {
         errorLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorLabel.setText(""));
+        delay.setOnFinished(_ -> errorLabel.setText(""));
         delay.play();
     }
 

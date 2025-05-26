@@ -6,9 +6,6 @@
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Appointment;
-import finalproject.glamourfx.data.Customer;
-import finalproject.glamourfx.data.Hairdresser;
-import finalproject.glamourfx.data.Service;
 import javafx.animation.RotateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,10 +28,8 @@ import javafx.util.Callback;
 import javafx.util.Duration;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -61,7 +56,7 @@ public class DatesInterface implements Initializable,ButtonCursor{
     public void initialize(URL location, ResourceBundle resources) {
         showData();
         applyStyle();
-        DatesList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        DatesList.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
             PriceDate.setText(String.valueOf(newValue.getTotalPrice()));
             ServiceDate.setText(newValue.getService());
             HairdresserDate.setText(newValue.getHairdresser());
@@ -98,7 +93,7 @@ public class DatesInterface implements Initializable,ButtonCursor{
         DatesList.setItems(datosObservables);
     }
 
-    public void update(ActionEvent actionEvent)
+    public void update()
     {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -124,7 +119,7 @@ public class DatesInterface implements Initializable,ButtonCursor{
         }
     }
 
-    public void delete(ActionEvent actionEvent)
+    public void delete()
     {
         try( PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("reservations.txt"))))
         {
@@ -173,18 +168,18 @@ public class DatesInterface implements Initializable,ButtonCursor{
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     public void applyStyle()
     {
-        DatesList.setCellFactory(new Callback<ListView<Appointment>, ListCell<Appointment>>()
+        DatesList.setCellFactory(new Callback<>()
         {
             @Override
             public ListCell<Appointment> call(ListView<Appointment> param)
             {
-                return new ListCell<Appointment>()
+                return new ListCell<>()
                 {
                     @Override
                     protected void updateItem(Appointment item, boolean empty)

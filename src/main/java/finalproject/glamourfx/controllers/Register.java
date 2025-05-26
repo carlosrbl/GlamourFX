@@ -93,7 +93,7 @@ public class Register implements ButtonCursor
                         stage.show();
                         rotate.play();
                     } catch (IOException e) {
-                        e.getMessage();
+                        System.out.println(e.getMessage());
                     }
                 }
                 else
@@ -119,7 +119,7 @@ public class Register implements ButtonCursor
 
     private boolean checkCustomer() {
         List<Customer> customers = new ArrayList<>();
-        try (BufferedReader inputFile = new BufferedReader(new FileReader(new File("customers.txt")))) {
+        try (BufferedReader inputFile = new BufferedReader(new FileReader("customers.txt"))) {
             String line;
             while ((line = inputFile.readLine()) != null) {
                 String[] data = line.split(";");
@@ -184,7 +184,7 @@ public class Register implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -197,7 +197,7 @@ public class Register implements ButtonCursor
     {
         errorLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorLabel.setText(""));
+        delay.setOnFinished(_ -> errorLabel.setText(""));
         delay.play();
     }
 

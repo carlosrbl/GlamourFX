@@ -55,7 +55,7 @@ public class AdminInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -88,7 +88,7 @@ public class AdminInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -121,7 +121,7 @@ public class AdminInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -154,7 +154,7 @@ public class AdminInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -187,7 +187,7 @@ public class AdminInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

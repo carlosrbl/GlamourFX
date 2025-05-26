@@ -56,7 +56,7 @@ public class CustomerInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -89,7 +89,7 @@ public class CustomerInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -122,7 +122,7 @@ public class CustomerInterface implements ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 

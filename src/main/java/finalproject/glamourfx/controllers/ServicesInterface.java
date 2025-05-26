@@ -5,7 +5,6 @@
 
 package finalproject.glamourfx.controllers;
 
-import finalproject.glamourfx.data.Hairdresser;
 import finalproject.glamourfx.data.Service;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
@@ -24,12 +23,11 @@ import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -47,15 +45,6 @@ public class ServicesInterface implements Initializable, ButtonCursor {
     private TextField servicesPrice;
 
     @FXML
-    private Button servicesAdd;
-
-    @FXML
-    private Button servicesUpdate;
-
-    @FXML
-    private Button servicesDelete;
-
-    @FXML
     private Label errorFields;
 
     @FXML
@@ -66,46 +55,34 @@ public class ServicesInterface implements Initializable, ButtonCursor {
 
     static List<Service> services;
 
-    @FXML
-    private Button servicesButton;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadServices();
         applyStyle();
         setupMouseEvents();
 
-        servicesList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        servicesList.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
             servicesName.setText(newValue.getName());
             servicesPrice.setText(newValue.getPrice()+"");
         });
 
         String[] orders = {"Name", "Name (inverted)", "Price", "Price (inverted)"};
         servicesOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
-        servicesOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            showOrderedBy(servicesOrder.getValue());
-        });
+        servicesOrder.getSelectionModel().selectedItemProperty().addListener((_, _, _) -> showOrderedBy(servicesOrder.getValue()));
     }
 
     public void applyStyle()
     {
-        servicesList.setCellFactory(new Callback<ListView<Service>, ListCell<Service>>()
-        {
+        servicesList.setCellFactory(new Callback<>() {
             @Override
-            public ListCell<Service> call(ListView<Service> param)
-            {
-                return new ListCell<Service>()
-                {
+            public ListCell<Service> call(ListView<Service> param) {
+                return new ListCell<>() {
                     @Override
-                    protected void updateItem(Service item, boolean empty)
-                    {
+                    protected void updateItem(Service item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (empty || item == null)
-                        {
+                        if (empty || item == null) {
                             setText(null);
-                        }
-                        else
-                        {
+                        } else {
                             setText(item.toString());
                         }
                         setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 20px;");
@@ -139,7 +116,7 @@ public class ServicesInterface implements Initializable, ButtonCursor {
                 services.sort((s1, s2)->s2.getName().compareToIgnoreCase(s1.getName()));
                 break;
             case "Price":
-                services.sort((s1, s2)->Double.compare(s1.getPrice(), s2.getPrice()));
+                services.sort(Comparator.comparingDouble(Service::getPrice));
                 break;
             case "Price (inverted)":
                 services.sort((s1, s2)->Double.compare(s2.getPrice(), s1.getPrice()));
@@ -180,7 +157,7 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -190,7 +167,7 @@ public class ServicesInterface implements Initializable, ButtonCursor {
     }
 
 
-    public void addService(ActionEvent actionEvent)
+    public void addService()
     {
         if (noErrorInFields())
         {
@@ -281,7 +258,7 @@ public class ServicesInterface implements Initializable, ButtonCursor {
     {
         errorPrice.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorPrice.setText(""));
+        delay.setOnFinished(_ -> errorPrice.setText(""));
         delay.play();
     }
 
@@ -290,7 +267,7 @@ public class ServicesInterface implements Initializable, ButtonCursor {
     {
         errorFields.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorFields.setText(""));
+        delay.setOnFinished(_ -> errorFields.setText(""));
         delay.play();
     }
     @Override
