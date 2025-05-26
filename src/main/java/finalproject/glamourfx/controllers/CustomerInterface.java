@@ -1,3 +1,8 @@
+/**
+ * @author Carlos
+ * This class contains the user interface controller
+ */
+
 package finalproject.glamourfx.controllers;
 
 import javafx.animation.RotateTransition;

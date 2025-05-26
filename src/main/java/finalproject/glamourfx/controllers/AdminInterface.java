@@ -1,3 +1,8 @@
+/**
+ * @author Carlos
+ * This class contains the Admin interface when we log in with the Admin
+ */
+
 package finalproject.glamourfx.controllers;
 
 import javafx.animation.RotateTransition;
@@ -14,7 +19,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 
 public class AdminInterface implements ButtonCursor

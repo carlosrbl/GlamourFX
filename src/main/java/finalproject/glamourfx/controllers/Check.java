@@ -1,3 +1,8 @@
+/**
+ * @author Carlos
+ * This class is responsible for checking the user login
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;

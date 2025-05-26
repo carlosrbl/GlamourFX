@@ -9,4 +9,5 @@ module finalproject.glamourfx {
     opens finalproject.glamourfx.controllers to javafx.fxml;
     exports finalproject.glamourfx.main;
     opens finalproject.glamourfx.main to javafx.fxml;
+    exports finalproject.glamourfx.data;
 }

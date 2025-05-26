@@ -1,3 +1,8 @@
+/**
+ * @author Adrían
+ * This class contains the user interface controller for the hairdressers section
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Hairdresser;
@@ -125,14 +130,13 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
     }
 
     @FXML
-    private void back(ActionEvent actionEvent)
-    {
+    public void back(ActionEvent event) {
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
             Parent root = loader.load();
 
-            root.setRotationAxis(Rotate.Y_AXIS);
+            root.setRotationAxis( Rotate.Y_AXIS);
             root.setRotate(-90);
 
             AdminInterface controller = loader.getController();
@@ -140,7 +144,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
 
@@ -151,8 +155,8 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
             rotate.setFromAngle(-90);
             rotate.setToAngle(0);
 
-
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {

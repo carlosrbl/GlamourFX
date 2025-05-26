@@ -1,3 +1,8 @@
+/**
+ * @author Carlos
+ * This class contains the register interface controller
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;

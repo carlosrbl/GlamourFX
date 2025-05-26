@@ -1,3 +1,8 @@
+/**
+ * @author Adrían
+ * This class contains the user interface controller for the services section
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Hairdresser;
@@ -144,12 +149,14 @@ public class ServicesInterface implements Initializable, ButtonCursor {
       servicesList.setItems(FXCollections.observableArrayList(services));
     }
 
-    public void back(ActionEvent actionEvent) {
-        try {
+    @FXML
+    public void back(ActionEvent event) {
+        try
+        {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
             Parent root = loader.load();
 
-            root.setRotationAxis(Rotate.Y_AXIS);
+            root.setRotationAxis( Rotate.Y_AXIS);
             root.setRotate(-90);
 
             AdminInterface controller = loader.getController();
@@ -157,10 +164,9 @@ public class ServicesInterface implements Initializable, ButtonCursor {
 
             Scene scene = new Scene(root);
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
-
 
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
@@ -170,6 +176,7 @@ public class ServicesInterface implements Initializable, ButtonCursor {
             rotate.setToAngle(0);
 
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {

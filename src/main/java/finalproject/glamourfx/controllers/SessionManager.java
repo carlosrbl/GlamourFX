@@ -1,3 +1,8 @@
+/**
+ * @author Carlos
+ * This class manages the current customer logged in
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;

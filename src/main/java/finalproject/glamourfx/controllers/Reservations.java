@@ -1,3 +1,8 @@
+/**
+ * @author Nehuén
+ * This class contains the reservation interface controller
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;

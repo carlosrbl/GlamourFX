@@ -1,3 +1,8 @@
+/**
+ * @author Nehuén
+ * This class contains the appointments of the user who is logged in
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Appointment;

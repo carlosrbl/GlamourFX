@@ -1,3 +1,11 @@
+/**
+ * @author Carlos
+ * @author Adrián
+ * @author Miguel
+ * @author Nehuén
+ * This is the main class that starts our application by loading the welcome interface
+ */
+
 package finalproject.glamourfx.main;
 
 import finalproject.glamourfx.data.Admin;

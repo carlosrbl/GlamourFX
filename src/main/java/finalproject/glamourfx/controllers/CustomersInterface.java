@@ -1,6 +1,12 @@
+/**
+ * @author Miguel
+ * This class contains the user interface controller for the customers section
+ */
+
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Customer;
+import javafx.animation.RotateTransition;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,8 +23,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
-
+import javafx.util.Duration;
 
 
 import java.io.*;
@@ -120,24 +127,33 @@ public class CustomersInterface implements Initializable,ButtonCursor {
         }
     }
     @FXML
-    private void back(ActionEvent actionEvent) {
+    public void back(ActionEvent event) {
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
+
+            root.setRotationAxis( Rotate.Y_AXIS);
+            root.setRotate(-90);
 
             AdminInterface controller = loader.getController();
             controller.setClienteName("Admin");
 
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
 
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
 
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
             stage.show();
+            rotate.play();
         }
         catch (IOException e)
         {
