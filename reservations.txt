@@ -1,3 +1,4 @@
 Manuel;Tinte y decoloracion;2025-05-08;22.80;a
 Pedro;Tinte y decoloracion;2025-05-07;19.80;a
 Manuel;Tinte y decoloracion;2025-05-24;19.80;a
+Manuel;Corte de pelo;2025-04-30;10.50;a

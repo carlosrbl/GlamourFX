@@ -1,6 +1,5 @@
 package finalproject.glamourfx.controllers;
 
-import finalproject.glamourfx.data.Customer;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
@@ -19,20 +18,10 @@ import javafx.util.Duration;
 import java.time.LocalDate;
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class Reservations implements Initializable, ButtonCursor
 {
-    private static Reservations instance;
-
-    @FXML
-    private Button cancelButton;
-    @FXML
-    private Button confirmButton;
-    @FXML
-    private Button backButton;
     @FXML
     private ChoiceBox<String> selectHairdresser;
     @FXML
@@ -63,7 +52,7 @@ public class Reservations implements Initializable, ButtonCursor
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
     private void loadServices()
@@ -81,12 +70,12 @@ public class Reservations implements Initializable, ButtonCursor
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     @FXML
-    private void cancelReservation(ActionEvent event)
+    private void cancelReservation()
     {
         selectHairdresser.getSelectionModel().clearSelection();
         selectService.getSelectionModel().clearSelection();
@@ -95,7 +84,7 @@ public class Reservations implements Initializable, ButtonCursor
     }
 
     @FXML
-    private void confirmReservation(ActionEvent event)
+    private void confirmReservation()
     {
         String hairdresser = selectHairdresser.getValue();
         String service = selectService.getValue();
@@ -105,18 +94,22 @@ public class Reservations implements Initializable, ButtonCursor
             setErrorStars("Por favor, completa todos los campos.");
             return;
         }
-        String reservationData = hairdresser + ";" + service + ";" + datePicker2.toString() + ";" + totalLabel.getText().replace(" €","").replace(",",".") + ";" + SessionManager.getCurrentCustomer().getName();
+        String reservationData = hairdresser + ";" + service + ";" + datePicker2 + ";" + totalLabel.getText().replace(" €","").replace(",",".") + ";" + SessionManager.getCurrentCustomer().getName();
 
         try (PrintWriter pw = new PrintWriter(new FileWriter("reservations.txt",true))) {
             pw.println(reservationData);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         setConfirmStars("Reserva guardada: " + reservationData);
         selectHairdresser.setValue("");
         selectService.setValue("");
     }
 
+    /**
+     * Navigates back to the main menu.
+     * @param event The action event triggered by clicking the back button.
+     */
     @FXML
     private void backToMainMenu(ActionEvent event)
     {
@@ -149,10 +142,15 @@ public class Reservations implements Initializable, ButtonCursor
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * Retrieves the price of a selected service.
+     * @param serviceName The name of the service.
+     * @return The price of the service.
+     */
     private double getServicePrice(String serviceName) {
         try (BufferedReader reader = new BufferedReader(new FileReader("services.txt"))) {
             String line;
@@ -163,10 +161,16 @@ public class Reservations implements Initializable, ButtonCursor
                 }
             }
         } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return 0.0;
     }
+
+    /**
+     * Retrieves the extra charge for a selected hairdresser.
+     * @param hairdresserName The name of the hairdresser.
+     * @return The extra charge of the hairdresser.
+     */
     private double getHairdresserExtra(String hairdresserName) {
         try (BufferedReader reader = new BufferedReader(new FileReader("hairdressers.txt"))) {
             String line;
@@ -177,7 +181,7 @@ public class Reservations implements Initializable, ButtonCursor
                 }
             }
         } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return 0.0;
     }
@@ -196,45 +200,70 @@ public class Reservations implements Initializable, ButtonCursor
         }
     }
 
-
-
-    //Mensajes de confirmación, error y cancelación
+    /**
+     * Sets the error message label and clears it after a delay.
+     * @param nombre The error message to display.
+     */
     public void setErrorStars(String nombre)
     {
         errorLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> errorLabel.setText(""));
+        delay.setOnFinished(_ -> errorLabel.setText(""));
         delay.play();
     }
+
+    /**
+     * Sets the confirmation message label and clears it after a delay.
+     * @param nombre The confirmation message to display.
+     */
     public void setConfirmStars(String nombre)
     {
         confirmLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> confirmLabel.setText(""));
+        delay.setOnFinished(_ -> confirmLabel.setText(""));
         delay.play();
     }
+
+    /**
+     * Sets the cancellation message label and clears it after a delay.
+     * @param nombre The cancellation message to display.
+     */
     public void setCancelStars(String nombre)
     {
         cancelLabel.setText(nombre);
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
-        delay.setOnFinished(e -> cancelLabel.setText(""));
+        delay.setOnFinished(_ -> cancelLabel.setText(""));
         delay.play();
     }
 
+    /**
+     * Initializes the controller class. This method is automatically called after the FXML file has been loaded.
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
         loadHairdressers();
         loadServices();
-        selectService.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> updateTotalPrice());
-        selectHairdresser.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> updateTotalPrice());
+        selectService.getSelectionModel().selectedItemProperty().addListener((_, _, _) -> updateTotalPrice());
+        selectHairdresser.getSelectionModel().selectedItemProperty().addListener((_, _, _) -> updateTotalPrice());
     }
 
+    /**
+     * Changes the cursor to a hand cursor when hovering over a button.
+     * @param event The mouse event.
+     */
     @Override
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
+
+    /**
+     * Changes the cursor back to the default cursor when exiting a button.
+     * @param event The mouse event.
+     */
     @Override
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();

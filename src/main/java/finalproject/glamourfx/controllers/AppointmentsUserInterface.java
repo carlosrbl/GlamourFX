@@ -1,9 +1,6 @@
 package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Appointment;
-import finalproject.glamourfx.data.Hairdresser;
-import finalproject.glamourfx.data.Service;
-import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -23,14 +20,7 @@ import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.*;
 
 public class AppointmentsUserInterface implements Initializable {
 
@@ -38,9 +28,6 @@ public class AppointmentsUserInterface implements Initializable {
 
     @FXML
     private ListView<Appointment> appointmentsList;
-
-    @FXML
-    private Button datesDelete;
 
     @FXML
     private ChoiceBox datesOrder;
@@ -57,9 +44,11 @@ public class AppointmentsUserInterface implements Initializable {
     @FXML
     private Label datesAppointment;
 
-    @FXML
-    private Button backButton;
-
+    /**
+     * Initializes the controller class. This method is automatically called after the FXML file has been loaded.
+     * @param url The location used to resolve relative paths for the root object, or null if the location is not known.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -67,7 +56,7 @@ public class AppointmentsUserInterface implements Initializable {
         applyStyle();
         setupMouseEvents();
 
-        appointmentsList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        appointmentsList.getSelectionModel().selectedItemProperty().addListener((_, _, newValue) -> {
             if (newValue != null)
             {
                 datesHairdresser.setText(newValue.getHairdresser());
@@ -85,30 +74,21 @@ public class AppointmentsUserInterface implements Initializable {
 
         String[] orders = {"Hairdresser", "Service", "Date", "Price"};
         datesOrder.setItems(FXCollections.observableArrayList(Arrays.asList(orders)));
-        datesOrder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            showOrderedBy(datesOrder.getValue().toString());
-        });
+        datesOrder.getSelectionModel().selectedItemProperty().addListener((_, _, _) -> showOrderedBy(datesOrder.getValue().toString()));
     }
 
     public void applyStyle()
     {
-        appointmentsList.setCellFactory(new Callback<ListView<Appointment>, ListCell<Appointment>>()
-        {
+        appointmentsList.setCellFactory(new Callback<>() {
             @Override
-            public ListCell<Appointment> call(ListView<Appointment> param)
-            {
-                return new ListCell<Appointment>()
-                {
+            public ListCell<Appointment> call(ListView<Appointment> param) {
+                return new ListCell<>() {
                     @Override
-                    protected void updateItem(Appointment item, boolean empty)
-                    {
+                    protected void updateItem(Appointment item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (empty || item == null)
-                        {
+                        if (empty || item == null) {
                             setText(null);
-                        }
-                        else
-                        {
+                        } else {
                             setText(item.toString());
                         }
                         setStyle("-fx-background-color: transparent; -fx-text-fill: black; -fx-font-size: 20px;");
@@ -123,14 +103,26 @@ public class AppointmentsUserInterface implements Initializable {
         appointmentsList.setOnMouseExited(this::CursorToDefault);
     }
 
+    /**
+     * Changes the cursor to hand when the mouse is clicked.
+     * @param event The mouse event.
+     */
     private void CursorToHand(MouseEvent event) {
         appointmentsList.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to default when the mouse exits.
+     * @param event The mouse event.
+     */
     private void CursorToDefault(MouseEvent event) {
         appointmentsList.setCursor(Cursor.DEFAULT);
     }
 
+    /**
+     * Navigates back to the main menu.
+     * @param event The action event triggered by clicking the back button.
+     */
     @FXML
     private void backToMainMenu(ActionEvent event)
     {
@@ -163,25 +155,29 @@ public class AppointmentsUserInterface implements Initializable {
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
+    /**
+     * Orders the appointments based on the selected criteria.
+     * @param order The criteria to order by ("Hairdresser", "Service", "Date", "Price").
+     */
     public void showOrderedBy(String order)
     {
         switch (order)
         {
             case "Hairdresser":
-                appointments.sort((a1, a2) -> a1.getHairdresser().toLowerCase().compareTo(a2.getHairdresser().toLowerCase()));
+                appointments.sort(Comparator.comparing(a -> a.getHairdresser().toLowerCase()));
                 break;
             case "Service":
-                appointments.sort((a1, a2) -> a1.getService().toLowerCase().compareTo(a2.getService().toLowerCase()));
+                appointments.sort(Comparator.comparing(a -> a.getService().toLowerCase()));
                 break;
             case "Date":
-                appointments.sort((a1, a2) -> a1.getTime().compareTo(a2.getTime()));
+                appointments.sort(Comparator.comparing(Appointment::getTime));
                 break;
             case "Price":
-                appointments.sort((a1, a2) -> Double.compare(a1.getTotalPrice(), a2.getTotalPrice()));
+                appointments.sort(Comparator.comparingDouble(Appointment::getTotalPrice));
                 break;
         }
         appointmentsList.setItems(FXCollections.observableArrayList(appointments));
@@ -194,7 +190,7 @@ public class AppointmentsUserInterface implements Initializable {
     }
 
     @FXML
-    private void deleteSelectedAppointment(ActionEvent event)
+    private void deleteSelectedAppointment()
     {
         Appointment selected = appointmentsList.getSelectionModel().getSelectedItem();
         if (selected == null)
@@ -229,6 +225,7 @@ public class AppointmentsUserInterface implements Initializable {
                         price = Double.parseDouble(priceStr.replace(",", "."));
                     } catch (NumberFormatException e) {
                         price = -1;
+                        System.out.println(e.getMessage());
                     }
 
                     boolean isExactMatch =
@@ -250,7 +247,7 @@ public class AppointmentsUserInterface implements Initializable {
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return;
         }
 
@@ -261,7 +258,7 @@ public class AppointmentsUserInterface implements Initializable {
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return;
         }
         loadAppointments();
