@@ -1,6 +1,7 @@
-Jorge;2;1.0
-Manuel;4;3.0
-Marta;1;0.0
-Pedro;3;0.0
-Pepa;2;3.0
-Susana Horia;5;5.0
+Jorge;2
+Manuel;4
+Marta;1
+Pedro;3
+Pepa;2
+Susana Horia;5
+Pepe;2

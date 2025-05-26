@@ -26,6 +26,10 @@ public class AdminInterface implements ButtonCursor
     @FXML
     private Label helloLabel;
 
+    /**
+     * Logs out the current user and navigates to the welcome screen.
+     * @param event The ActionEvent triggered by the logout action.
+     */
     @FXML
     private void logOut(ActionEvent event)
     {
@@ -59,6 +63,10 @@ public class AdminInterface implements ButtonCursor
         }
     }
 
+    /**
+     * Loads the hairdresser interface.
+     * @param event The ActionEvent triggered by the load hairdressers action.
+     */
     @FXML
     private void loadHairdressersInterface(ActionEvent event)
     {
@@ -92,6 +100,10 @@ public class AdminInterface implements ButtonCursor
         }
     }
 
+    /**
+     * Loads the appointment interface.
+     * @param event The ActionEvent triggered by the load appointments action.
+     */
     @FXML
     private void loadAppointmentsInterface(ActionEvent event)
     {
@@ -125,6 +137,10 @@ public class AdminInterface implements ButtonCursor
         }
     }
 
+    /**
+     * Loads the service interface.
+     * @param event The ActionEvent triggered by the load services action.
+     */
     @FXML
     private void loadServicesInterface(ActionEvent event)
     {
@@ -158,6 +174,10 @@ public class AdminInterface implements ButtonCursor
         }
     }
 
+    /**
+     * Loads the customer's interface.
+     * @param event The ActionEvent triggered by the load customers action.
+     */
     @FXML
     private void loadCustomersInterface(ActionEvent event)
     {
@@ -191,17 +211,28 @@ public class AdminInterface implements ButtonCursor
         }
     }
 
+    /**
+     * Sets the client name in the hello label.
+     * @param nombre The name of the client.
+     */
     public void setClienteName(String nombre)
     {
         helloLabel.setText("Hello, " + nombre.substring(0,1).toUpperCase() + nombre.substring(1) + "!");
     }
 
-
+    /**
+     * Changes the cursor to a hand cursor when hovering over a button.
+     * @param event The MouseEvent triggered by hovering over a button.
+     */
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to the default cursor when not hovering over a button.
+     * @param event The MouseEvent triggered by not hovering over a button.
+     */
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.DEFAULT);

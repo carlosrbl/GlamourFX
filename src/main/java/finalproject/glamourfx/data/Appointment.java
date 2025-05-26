@@ -79,6 +79,10 @@ public class Appointment {
         return hairdresser + ", " + service + ", " + time.format(formatter) + ", " + totalPrice + " €";
     }
 
+    /**
+     * Retrieves a list of appointments for the current customer.
+     * @return A list of appointments for the current customer.
+     */
     public static List<Appointment> getAppointments() {
         List<Appointment> appointments = new ArrayList<>();
         try (BufferedReader bf = new BufferedReader(new FileReader("reservations.txt")))

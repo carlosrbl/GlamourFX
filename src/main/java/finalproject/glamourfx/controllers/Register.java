@@ -50,11 +50,20 @@ public class Register implements ButtonCursor
         instance = this;
     }
 
+    /**
+     * Gets the instance of the Register class.
+     * @return The instance of the Register class.
+     */
     public static Register getInstance()
     {
         return instance;
     }
 
+    /**
+     * Adds a new user to the system.
+     * Validates the input fields and checks if the user already exists.
+     * @param event The action event triggered by the user.
+     */
     @FXML
     private void addUser(ActionEvent event)
     {
@@ -112,11 +121,19 @@ public class Register implements ButtonCursor
         }
     }
 
+    /**
+     * Checks if the passwords entered match.
+     * @return true if the passwords match, false otherwise.
+     */
     private boolean checkPassword()
     {
         return txPassword.getText().equals(txPassword2.getText());
     }
 
+    /**
+     * Checks if the customer already exists in the system.
+     * @return true if the customer exists, false otherwise.
+     */
     private boolean checkCustomer() {
         List<Customer> customers = new ArrayList<>();
         try (BufferedReader inputFile = new BufferedReader(new FileReader("customers.txt"))) {
@@ -155,6 +172,10 @@ public class Register implements ButtonCursor
         SessionManager.setCurrentCustomer(customer);
     }
 
+    /**
+     * Cancels the registration process and navigates back to the welcome screen.
+     * @param event The action event triggered by the user.
+     */
     @FXML
     private void cancel(ActionEvent event)
     {
@@ -188,11 +209,19 @@ public class Register implements ButtonCursor
         }
     }
 
+    /**
+     * Checks if any of the input fields are empty.
+     * @return true if any field is empty, false otherwise.
+     */
     public boolean anyEmptyField()
     {
         return txName.getText().isEmpty() || txPassword.getText().isEmpty() || txPassword2.getText().isEmpty() || txEmail.getText().isEmpty() || txPhoneNumber.getText().isEmpty() ;
     }
 
+    /**
+     * Sets the error message to be displayed to the user.
+     * @param nombre The error message to be displayed.
+     */
     public void setErrorName(String nombre)
     {
         errorLabel.setText(nombre);
@@ -201,11 +230,19 @@ public class Register implements ButtonCursor
         delay.play();
     }
 
+    /**
+     * Changes the cursor to a hand icon when hovering over a button.
+     * @param event The mouse event triggered by the user.
+     */
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to the default icon when not hovering over a button.
+     * @param event The mouse event triggered by the user.
+     */
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.DEFAULT);

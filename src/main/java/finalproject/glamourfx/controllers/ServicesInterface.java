@@ -55,6 +55,11 @@ public class ServicesInterface implements Initializable, ButtonCursor {
 
     static List<Service> services;
 
+    /**
+     * Initializes the controller class.
+     * @param url The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadServices();
@@ -97,14 +102,26 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         servicesList.setOnMouseExited(this::CursorToDefault);
     }
 
+    /**
+     * Changes the cursor to a hand icon when hovering over the list view.
+     * @param event The mouse event triggered by the user.
+     */
     private void CursorToHand(MouseEvent event) {
         servicesList.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to the default icon when not hovering over the list view.
+     * @param event The mouse event triggered by the user.
+     */
     private void CursorToDefault(MouseEvent event) {
         servicesList.setCursor(Cursor.DEFAULT);
     }
 
+    /**
+     * Orders the services based on the selected criteria.
+     * @param order The criteria by which to order the services.
+     */
     public void showOrderedBy(String order)
     {
         switch (order)
@@ -126,6 +143,10 @@ public class ServicesInterface implements Initializable, ButtonCursor {
       servicesList.setItems(FXCollections.observableArrayList(services));
     }
 
+    /**
+     * Navigates back to the admin interface.
+     * @param event The action event triggered by the user.
+     */
     @FXML
     public void back(ActionEvent event) {
         try
@@ -161,6 +182,10 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         }
     }
 
+    /**
+     * Checks if the input fields are not empty.
+     * @return true if the fields are not empty, false otherwise.
+     */
     public boolean emptyField()
     {
         return !servicesName.getText().isEmpty() && !servicesPrice.getText().isEmpty();
@@ -219,6 +244,10 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         }
     }
 
+    /**
+     * Checks if there are no errors in the input fields.
+     * @return true if there are no errors, false otherwise.
+     */
     public boolean noErrorInFields()
     {
         boolean comprove = true;
@@ -240,6 +269,11 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         return comprove;
     }
 
+    /**
+     * Validates if the input string is a valid price.
+     * @param number The input string to validate.
+     * @return true if the input is a valid price, false otherwise.
+     */
     public boolean isValidPrice(String number) {
         String expression = "^\\d*\\.\\d+$";
         Pattern p = Pattern.compile(expression);
@@ -254,6 +288,10 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         servicesList.setItems(FXCollections.observableArrayList(services));
     }
 
+    /**
+     * Sets the error message for the price field.
+     * @param nombre The error message to be displayed.
+     */
     public void setErrorPrice(String nombre)
     {
         errorPrice.setText(nombre);
@@ -262,7 +300,10 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         delay.play();
     }
 
-
+    /**
+     * Sets the error message for the input fields.
+     * @param nombre The error message to be displayed.
+     */
     public void setErrorFields(String nombre)
     {
         errorFields.setText(nombre);
@@ -270,12 +311,21 @@ public class ServicesInterface implements Initializable, ButtonCursor {
         delay.setOnFinished(_ -> errorFields.setText(""));
         delay.play();
     }
+
+    /**
+     * Changes the cursor to a hand icon when hovering over a button.
+     * @param event The mouse event triggered by the user.
+     */
     @Override
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to the default icon when not hovering over a button.
+     * @param event The mouse event triggered by the user.
+     */
     @Override
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();

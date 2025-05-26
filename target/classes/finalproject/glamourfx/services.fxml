@@ -13,17 +13,13 @@
 <Pane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="finalproject.glamourfx.controllers.ServicesInterface">
     <ImageView fitHeight="1080.0" fitWidth="1920.0">
-        <image>
-            <Image url="@../img/services.png"/>
-        </image>
+        <Image url="@../img/services.png"/>
     </ImageView>
     <ImageView fitHeight="110.0" fitWidth="134.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true"
                preserveRatio="true">
-        <image>
-          <Image url="@../img/back.png"/>
-        </image>
+        <Image url="@../img/back.png"/>
     </ImageView>
-    <Button id="serviceBack" fx:id="servicesButton" layoutX="41.0" layoutY="40.0" onAction="#back"
+    <Button layoutX="41.0" layoutY="40.0" onAction="#back"
             onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" opacity="0.0" prefHeight="102.0"
             prefWidth="135.0"
             style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
@@ -36,13 +32,13 @@
             <Font size="60.0"/>
         </font>
     </Label>
-    <TextField id="serviceName" fx:id="servicesName" layoutX="915.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0"
+    <TextField fx:id="servicesName" layoutX="915.0" layoutY="487.0" prefHeight="56.0" prefWidth="420.0"
                style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
         <font>
         <Font size="26.0"/>
         </font>
     </TextField>
-    <ListView id="serviceList" fx:id="servicesList" layoutX="152.0" layoutY="293.0" prefHeight="602.0" prefWidth="601.0"
+    <ListView fx:id="servicesList" layoutX="152.0" layoutY="293.0" prefHeight="602.0" prefWidth="601.0"
               style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
     <Label layoutX="1125.0" layoutY="71.0" prefHeight="107.0" prefWidth="501.0" text="Services Data" textFill="WHITE">
         <font>
@@ -55,14 +51,14 @@
           <Font size="60.0"/>
         </font>
     </Label>
-    <TextField id="servicePrice" fx:id="servicesPrice" layoutX="1404.0" layoutY="487.0" prefHeight="56.0"
+    <TextField fx:id="servicesPrice" layoutX="1404.0" layoutY="487.0" prefHeight="56.0"
                prefWidth="420.0"
                style="-fx-text-fill: white; -fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;">
         <font>
           <Font size="26.0"/>
         </font>
     </TextField>
-    <Button id="serviceUpdate" fx:id="servicesUpdate" layoutX="1263.0" layoutY="573.0" onAction="#updateService"
+    <Button layoutX="1263.0" layoutY="573.0" onAction="#updateService"
             onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="49.0"
             prefWidth="226.0"
             style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="UPDATE"
@@ -71,7 +67,7 @@
           <Font size="36.0"/>
         </font>
     </Button>
-    <Button id="serviceDelete" fx:id="servicesDelete" layoutX="1523.0" layoutY="573.0" onAction="#deleteService"
+    <Button layoutX="1523.0" layoutY="573.0" onAction="#deleteService"
             onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="49.0"
             prefWidth="226.0"
             style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="DELETE"
@@ -80,7 +76,7 @@
           <Font size="36.0"/>
         </font>
     </Button>
-    <Button id="serviceAdd" fx:id="servicesAdd" layoutX="1012.0" layoutY="573.0" onAction="#addService"
+    <Button layoutX="1012.0" layoutY="573.0" onAction="#addService"
             onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="49.0"
             prefWidth="226.0"
             style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="ADD"

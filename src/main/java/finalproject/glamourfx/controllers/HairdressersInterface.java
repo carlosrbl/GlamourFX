@@ -55,6 +55,11 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
     @FXML
     private Label errorLabelFields;
 
+    /**
+     * Initializes the controller class.
+     * @param url The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
     {
@@ -105,15 +110,27 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         hairdressersList.setOnMouseExited(this::CursorToDefault);
     }
 
+    /**
+     * Changes the cursor to a hand cursor when hovering over the list view.
+     * @param event The MouseEvent triggered by hovering over the list view.
+     */
     private void CursorToHand(MouseEvent event) {
         hairdressersList.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to the default cursor when not hovering over the list view.
+     * @param event The MouseEvent triggered by not hovering over the list view.
+     */
     private void CursorToDefault(MouseEvent event)
     {
         hairdressersList.setCursor(Cursor.DEFAULT);
     }
 
+    /**
+     * Navigates back to the admin interface.
+     * @param event The ActionEvent triggered by the back action.
+     */
     @FXML
     public void back(ActionEvent event) {
         try
@@ -149,6 +166,10 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         }
     }
 
+    /**
+     * Displays hairdressers ordered by the specified criteria.
+     * @param order The criteria to order by.
+     */
     public void showOrderedBy(String order)
     {
         switch (order)
@@ -169,6 +190,10 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
     }
 
+    /**
+     * Checks if the fields are empty.
+     * @return True if the fields are not empty, false otherwise.
+     */
     public boolean emptyField()
     {
         return !hairdresserName.getText().isEmpty() && !hairdresserStars.getText().trim().isEmpty();
@@ -252,6 +277,11 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         }
     }
 
+    /**
+     * Checks if the input string is a valid number.
+     * @param number The string to check.
+     * @return True if the string is a valid number, false otherwise.
+     */
     public boolean isValidNumber(String number)
     {
         String expression = "^[0-9]+$";
@@ -266,6 +296,10 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         hairdressersList.setItems(FXCollections.observableArrayList(hairdressers));
     }
 
+    /**
+     * Sets the error message for stars.
+     * @param nombre The error message.
+     */
     public void setErrorStars(String nombre)
     {
         errorLabel.setText(nombre);
@@ -274,6 +308,10 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         delay.play();
     }
 
+    /**
+     * Sets the error message for fields.
+     * @param nombre The error message.
+     */
     public void setErrorFields(String nombre)
     {
         errorLabelFields.setText(nombre);
@@ -281,11 +319,21 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         delay.setOnFinished(_ -> errorLabelFields.setText(""));
         delay.play();
     }
+
+    /**
+     * Changes the cursor to a hand cursor when hovering over a button.
+     * @param event The MouseEvent triggered by hovering over a button.
+     */
     @Override
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
+
+    /**
+     * Changes the cursor back to the default cursor when not hovering over a button.
+     * @param event The MouseEvent triggered by not hovering over a button.
+     */
     @Override
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();

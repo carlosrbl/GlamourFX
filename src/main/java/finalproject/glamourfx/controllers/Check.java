@@ -44,11 +44,19 @@ public class Check implements ButtonCursor
         instance = this;
     }
 
+    /**
+     * Gets the instance of the Check class.
+     * @return The instance of the Check class.
+     */
     public static Check getInstance()
     {
         return instance;
     }
 
+    /**
+     * Checks the user credentials and navigates to the appropriate interface.
+     * @param event The ActionEvent triggered by the check user action.
+     */
     @FXML
     private void checkUser(ActionEvent event)
     {
@@ -133,11 +141,19 @@ public class Check implements ButtonCursor
         }
     }
 
+    /**
+     * Checks if the user is an admin.
+     * @return True if the user is an admin, false otherwise.
+     */
     private boolean checkAdmin()
     {
         return txName.getText().equalsIgnoreCase(HelloApplication.ADMIN.getName()) && txPassword.getText().equalsIgnoreCase(HelloApplication.ADMIN.getPassword());
     }
 
+    /**
+     * Retrieves the list of customers from the file.
+     * @return The list of customers.
+     */
     private List<Customer> getCustomers()
     {
         List<Customer> customers = new ArrayList<>();
@@ -157,6 +173,11 @@ public class Check implements ButtonCursor
         return customers;
     }
 
+    /**
+     * Checks if the user exists in the list of customers.
+     * @param customers The list of customers.
+     * @return True if the user exists, false otherwise.
+     */
     private boolean check(List<Customer> customers)
     {
         boolean exists = false;
@@ -170,6 +191,10 @@ public class Check implements ButtonCursor
         return exists;
     }
 
+    /**
+     * Sets the current customer in the session.
+     * @param customers The list of customers.
+     */
     private void userLogged(List<Customer> customers)
     {
         boolean ok = false;
@@ -183,6 +208,10 @@ public class Check implements ButtonCursor
         }
     }
 
+    /**
+     * Loads the register interface.
+     * @param event The ActionEvent triggered by the load register action.
+     */
     @FXML
     private void loadRegisterInterface(ActionEvent event)
     {
@@ -215,6 +244,10 @@ public class Check implements ButtonCursor
         }
     }
 
+    /**
+     * Sets the error message.
+     * @param nombre The error message.
+     */
     public void setError(String nombre)
     {
         errorLabel.setText(nombre);
@@ -223,11 +256,19 @@ public class Check implements ButtonCursor
         delay.play();
     }
 
+    /**
+     * Changes the cursor to a hand cursor when hovering over a button.
+     * @param event The MouseEvent triggered by hovering over a button.
+     */
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
 
+    /**
+     * Changes the cursor back to the default cursor when not hovering over a button.
+     * @param event The MouseEvent triggered by not hovering over a button.
+     */
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.DEFAULT);

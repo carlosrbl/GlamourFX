@@ -45,7 +45,10 @@ public class Service {
         return duration;
     }
 
-
+    /**
+     * Retrieves a list of services from a file.
+     * @return A list of services.
+     */
     public static ArrayList<Service> getServices() {
         ArrayList<Service> services = new ArrayList<>();
         try (BufferedReader bf = new BufferedReader(new FileReader("services.txt")))
@@ -65,6 +68,10 @@ public class Service {
         return services;
     }
 
+    /**
+     * Stores a list of services in a file.
+     * @param services The list of services to store.
+     */
     public static void storeInFile(List<Service> services) {
         try (PrintWriter pw = new PrintWriter("services.txt")) {
 

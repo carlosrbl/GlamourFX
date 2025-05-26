@@ -51,7 +51,11 @@ public class DatesInterface implements Initializable,ButtonCursor{
 
     static ArrayList<Appointment> appointmentList;
 
-
+    /**
+     * Initializes the controller class.
+     * @param location The location used to resolve relative paths for the root object.
+     * @param resources The resources used to localize the root object.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         showData();
@@ -65,6 +69,10 @@ public class DatesInterface implements Initializable,ButtonCursor{
         });
     }
 
+    /**
+     * Reads appointment data from a file.
+     * @return The list of appointments.
+     */
     public ArrayList<Appointment> reader()
     {
         String [] appointments;
@@ -137,6 +145,10 @@ public class DatesInterface implements Initializable,ButtonCursor{
         }
     }
 
+    /**
+     * Navigates back to the admin interface.
+     * @param event The ActionEvent triggered by the back action.
+     */
     @FXML
     public void back(ActionEvent event) {
         try
@@ -200,12 +212,20 @@ public class DatesInterface implements Initializable,ButtonCursor{
         });
     }
 
-
+    /**
+     * Changes the cursor to a hand cursor when hovering over a button.
+     * @param event The MouseEvent triggered by hovering over a button.
+     */
     @Override
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
         button.setCursor(Cursor.HAND);
     }
+
+    /**
+     * Changes the cursor back to the default cursor when not hovering over a button.
+     * @param event The MouseEvent triggered by not hovering over a button.
+     */
     @Override
     public void changeCursorToDefault(MouseEvent event) {
         Button button = (Button) event.getSource();

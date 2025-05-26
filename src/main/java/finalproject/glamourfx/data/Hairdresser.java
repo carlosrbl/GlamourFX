@@ -21,6 +21,10 @@ public class Hairdresser extends Person {
         reviseStars(stars);
     }
 
+    /**
+     * Adjusts the star rating to ensure it is within the valid range (1-5).
+     * @param stars The star rating to adjust.
+     */
     public void reviseStars(int stars) {
         if (stars > 5)
         {
@@ -46,7 +50,10 @@ public class Hairdresser extends Person {
         this.stars = stars;
     }
 
-
+    /**
+     * Stores a list of hairdressers in a file.
+     * @param hairdressers The list of hairdressers to store.
+     */
     public static void storeInFile(List<Hairdresser> hairdressers) {
         try (PrintWriter pw=new PrintWriter("hairdressers.txt"))
         {
@@ -58,6 +65,10 @@ public class Hairdresser extends Person {
         }
     }
 
+    /**
+     * Retrieves a list of hairdressers from a file.
+     * @return A list of hairdressers.
+     */
     public static List<Hairdresser> getHairdressers() {
         List<Hairdresser> hairdressers = new ArrayList<>();
         try (BufferedReader bf = new BufferedReader(new FileReader("hairdressers.txt")))
