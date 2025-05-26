@@ -42,7 +42,7 @@ public class CustomersInterface implements Initializable,ButtonCursor {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MostrarDatos();
+        ShowInfo();
         CustomersList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             CustomerName.setText(newValue.getName());
             CustomerPassword.setText(newValue.getPassword());
@@ -51,7 +51,7 @@ public class CustomersInterface implements Initializable,ButtonCursor {
         });
     }
 
-    public ArrayList<Customer> Lector()
+    public ArrayList<Customer> Reader()
     {
         String [] datos;
         customers = new ArrayList<Customer>();
@@ -72,9 +72,9 @@ public class CustomersInterface implements Initializable,ButtonCursor {
         return customers;
 
     }
-    public void MostrarDatos()
+    public void ShowInfo()
     {
-        ObservableList<Customer> datosObservables = FXCollections.observableArrayList(Lector());
+        ObservableList<Customer> datosObservables = FXCollections.observableArrayList(Reader());
 
         CustomersList.setItems(datosObservables);
     }
