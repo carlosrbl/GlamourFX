@@ -1,3 +1,1 @@
-a;Manuel;Tinte y decoloracion;2025-04-3022,80
-a;Pedro;Perfilado de barba;2025-04-065,50
-a;Pepa;Corte y perfilado;2025-06-1016,70
+Manuel;Tinte y decoloracion;2025-05-08;22.80;a
