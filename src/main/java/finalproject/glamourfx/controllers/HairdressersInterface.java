@@ -117,12 +117,14 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
         hairdressersList.setCursor(Cursor.HAND);
     }
 
-    private void CursorToDefault(MouseEvent event) {
+    private void CursorToDefault(MouseEvent event)
+    {
         hairdressersList.setCursor(Cursor.DEFAULT);
     }
 
     @FXML
-    private void back(ActionEvent actionEvent) {
+    private void back(ActionEvent actionEvent)
+    {
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));

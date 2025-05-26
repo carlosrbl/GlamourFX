@@ -2,6 +2,8 @@ package finalproject.glamourfx.controllers;
 
 import finalproject.glamourfx.data.Appointment;
 import finalproject.glamourfx.data.Customer;
+import finalproject.glamourfx.data.Hairdresser;
+import finalproject.glamourfx.data.Service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,10 +15,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.*;
 import java.lang.reflect.Array;
@@ -47,7 +51,8 @@ public class DatesInterface implements Initializable,ButtonCursor{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MostrarDatos();
+        showData();
+        applyStyle();
         DatesList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             PriceDate.setText(String.valueOf(newValue.getTotalPrice()));
             ServiceDate.setText(newValue.getService());
@@ -57,7 +62,7 @@ public class DatesInterface implements Initializable,ButtonCursor{
         });
     }
 
-    public ArrayList<Appointment> Lector()
+    public ArrayList<Appointment> reader()
     {
         String [] appointments;
         String linea;
@@ -79,9 +84,9 @@ public class DatesInterface implements Initializable,ButtonCursor{
         return appointmentList;
     }
 
-    public void MostrarDatos()
+    public void showData()
     {
-        ObservableList<Appointment> datosObservables = FXCollections.observableArrayList(Lector());
+        ObservableList<Appointment> datosObservables = FXCollections.observableArrayList(reader());
         DatesList.setItems(datosObservables);
     }
 
@@ -139,6 +144,9 @@ public class DatesInterface implements Initializable,ButtonCursor{
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
+            AdminInterface controller = loader.getController();
+            controller.setClienteName("Admin");
+
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
@@ -153,6 +161,37 @@ public class DatesInterface implements Initializable,ButtonCursor{
             e.printStackTrace();
         }
     }
+
+
+    public void applyStyle()
+    {
+        DatesList.setCellFactory(new Callback<ListView<Appointment>, ListCell<Appointment>>()
+        {
+            @Override
+            public ListCell<Appointment> call(ListView<Appointment> param)
+            {
+                return new ListCell<Appointment>()
+                {
+                    @Override
+                    protected void updateItem(Appointment item, boolean empty)
+                    {
+                        super.updateItem(item, empty);
+                        if (empty || item == null)
+                        {
+                            setText(null);
+                        }
+                        else
+                        {
+                            setText(item.toString());
+                        }
+                        setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                    }
+                };
+            }
+        });
+    }
+
+
     @Override
     public void changeCursorToHand(MouseEvent event) {
         Button button = (Button) event.getSource();
