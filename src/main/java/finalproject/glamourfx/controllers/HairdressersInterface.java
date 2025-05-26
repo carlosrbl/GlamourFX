@@ -3,6 +3,7 @@ package finalproject.glamourfx.controllers;
 import finalproject.glamourfx.data.Hairdresser;
 import finalproject.glamourfx.data.Service;
 import javafx.animation.PauseTransition;
+import javafx.animation.RotateTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.util.Duration;
@@ -101,7 +103,7 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
                         {
                             setText(item.toString());
                         }
-                        setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                        setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 20px;");
                     }
                 };
             }
@@ -130,6 +132,9 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/finalproject/glamourfx/admin.fxml"));
             Parent root = loader.load();
 
+            root.setRotationAxis(Rotate.Y_AXIS);
+            root.setRotate(-90);
+
             AdminInterface controller = loader.getController();
             controller.setClienteName("Admin");
 
@@ -139,9 +144,13 @@ public class HairdressersInterface implements Initializable, ButtonCursor {
             stage.setTitle("GlamourFX");
             stage.setScene(scene);
 
-
             stage.setFullScreen(true);
             stage.setFullScreenExitHint("");
+
+            RotateTransition rotate = new RotateTransition(Duration.millis(700), root);
+            rotate.setFromAngle(-90);
+            rotate.setToAngle(0);
+
 
             stage.show();
         }

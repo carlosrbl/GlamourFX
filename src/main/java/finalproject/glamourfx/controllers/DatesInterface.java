@@ -184,7 +184,7 @@ public class DatesInterface implements Initializable,ButtonCursor{
                         {
                             setText(item.toString());
                         }
-                        setStyle("-fx-background-color: transparent; -fx-text-fill: white;");
+                        setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 20px");
                     }
                 };
             }

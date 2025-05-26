@@ -16,7 +16,7 @@
             <Image url="@../img/customers.png" />
          </image>
       </ImageView>
-      <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" text="DELETE">
+      <Button layoutX="1523.0" layoutY="686.0" onAction="#delete" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="DELETE" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
@@ -31,12 +31,12 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
          </font>
       </Label>
-      <Button layoutX="1248.0" layoutY="685.0" onAction="#update" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" text="UPDATE">
+      <Button layoutX="1248.0" layoutY="685.0" onAction="#update" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" prefHeight="85.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <ListView fx:id="CustomersList" layoutX="359.0" layoutY="146.0" prefHeight="837.0" prefWidth="729.0" />
+      <ListView fx:id="CustomersList" layoutX="359.0" layoutY="146.0" prefHeight="837.0" prefWidth="729.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
       <Label layoutX="1254.0" layoutY="511.0" prefHeight="42.0" prefWidth="275.0" text="Phone number" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
@@ -47,10 +47,10 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="65.0" />
          </font>
       </Label>
-      <TextField fx:id="CustomerPhoneNumber" layoutX="1231.0" layoutY="575.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField fx:id="CustomerEmail" layoutX="1234.0" layoutY="452.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField fx:id="CustomerPassword" layoutX="1232.0" layoutY="328.0" prefHeight="53.0" prefWidth="508.0" />
-      <TextField fx:id="CustomerName" layoutX="1231.0" layoutY="206.0" prefHeight="53.0" prefWidth="508.0" />
+      <TextField fx:id="CustomerPhoneNumber" layoutX="1231.0" layoutY="575.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
+      <TextField fx:id="CustomerEmail" layoutX="1234.0" layoutY="452.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
+      <TextField fx:id="CustomerPassword" layoutX="1232.0" layoutY="328.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
+      <TextField fx:id="CustomerName" layoutX="1231.0" layoutY="206.0" prefHeight="53.0" prefWidth="508.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" />
       <Label layoutX="1267.0" layoutY="130.0" prefHeight="42.0" prefWidth="168.0" text="Name" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
@@ -61,7 +61,7 @@
             <Image url="@../img/back.png" />
          </image>
       </ImageView>
-      <Button layoutX="32.0" layoutY="34.0" onAction="#back" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" opacity="0.0" prefHeight="159.0" prefWidth="192.0" text="BACK">
+      <Button layoutX="32.0" layoutY="34.0" onAction="#back" onMouseEntered="#changeCursorToHand" onMouseExited="#changeCursorToDefault" opacity="0.0" prefHeight="159.0" prefWidth="192.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;" text="BACK">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>

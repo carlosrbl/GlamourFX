@@ -36,7 +36,7 @@
             <Font name="Tw Cen MT Condensed Extra Bold" size="30.0" />
          </font>
       </Button>
-      <ListView fx:id="DatesList" layoutX="349.0" layoutY="136.0" prefHeight="837.0" prefWidth="729.0" />
+      <ListView fx:id="DatesList" layoutX="349.0" layoutY="136.0" prefHeight="837.0" prefWidth="729.0" style="-fx-background-color: transparent; -fx-border-radius: 10px; -fx-border-color: white;"/>
       <Label layoutX="1244.0" layoutY="501.0" prefHeight="42.0" prefWidth="275.0" text="Service" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT Condensed Extra Bold" size="45.0" />
